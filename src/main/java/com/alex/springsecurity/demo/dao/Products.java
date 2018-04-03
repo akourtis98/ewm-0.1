@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -23,21 +25,32 @@ public class Products implements Serializable {
     
     public Products(){}
     
+    public Products(String title, String category) {
+        this.title = title;
+        this.category = category;
+    }
+    
     public Products(List<Products> Products){
         this.list = Products;
     }
     
     @Transient
     private List<Products> list;
+
+    
     
     @Id
     @Column(name="id")
     private int id;
     
     @Column(name="title")
+    @NotNull(message="is required")
+    @Size(min=1, message="is required")
     private String title;
     
     @Column(name="category")
+    @NotNull(message="is required")
+    @Size(min=1, message="is required")
     private String category;
 
     public String getCategory() {
@@ -73,12 +86,15 @@ public class Products implements Serializable {
     }
     
     @Column(name="enabled")
+    @Transient
     private int enabled;
     
     @Column(name="price")
+    @Transient
     private int price;
     
     @Column(name="description")
+    @Transient
     private String description;
     
      

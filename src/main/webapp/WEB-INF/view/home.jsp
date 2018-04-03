@@ -43,8 +43,11 @@
         <a href="${pageContext.request.contextPath}/about">Contact</a>
     <br>
     </security:authorize>
+    <security:authorize access="hasRole('ADMIN')">
+        <a href="${pageContext.request.contextPath}/add-product/product">Add product to sell</a>
+    <br>
+    </security:authorize>
 
-    
     <security:authorize access="hasRole('ADMIN')">
         <a href="${pageContext.request.contextPath}/panel">management panel (only for managers)</a>
     <br>
