@@ -6,10 +6,12 @@
 package com.alex.springsecurity.demo.controller;
 
 import com.alex.springsecurity.demo.dao.Products;
+import com.alex.springsecurity.demo.service.ProductService;
 import javax.validation.Valid;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/add-product")
 public class AddProduct {
+    
+    @Autowired
+    private ProductService productService;
     
     @InitBinder
     public void initBinder(WebDataBinder databinder){
@@ -51,36 +56,9 @@ public class AddProduct {
             return "addProductPage";
         }
         else{
-            write(Products.getTitle(), Products.getCategory());
+            productService.saveProduct(Products);
+            //  write(Products.getTitle(), Products.getCategory());
             return "successproduct";
-        }
-    }
-
-    
-    
-    private static void write(String title, String category){
-         // create session factory
-        SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(com.alex.springsecurity.demo.dao.Products.class)
-                .buildSessionFactory();
-        
-        // create session@
-        Session session = factory.getCurrentSession();
-        try{
-            
-            System.out.println("creating new product");
-            Products tempProducts = new com.alex.springsecurity.demo.dao.Products(title, category);
-            
-            session.beginTransaction();
-             
-            System.out.println("beginning transaction");
-            session.save(tempProducts);
-            
-            session.getTransaction().commit();              
-            }
-        finally{
-            factory.close();
         }
     }
 }

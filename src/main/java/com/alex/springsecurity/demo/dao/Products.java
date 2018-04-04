@@ -39,8 +39,6 @@ public class Products implements Serializable {
     @Transient
     private List<Products> list;
 
-    
-    
     @Id
     @Column(name="id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)

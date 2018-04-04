@@ -15,4 +15,8 @@ public interface ProductsDAO{
     
     public List<Products> getProducts();
     
+    public Products getProduct(int id);
+
+    public void saveProduct(Products product);
+    
 }

@@ -25,12 +25,12 @@ public class ProductsDAOImpl  implements ProductsDAO{
     private SessionFactory sessionFactory;
     
     @Override
-    @Transactional
     public List<Products> getProducts() {
         
         Session currentSession = sessionFactory.openSession();
         
-        Query<Products> q = currentSession.createQuery("from Products", Products.class);
+        Query<Products> q =
+                currentSession.createQuery("from Products", Products.class);
         
         List<Products> products = q.getResultList();
         
@@ -39,6 +39,30 @@ public class ProductsDAOImpl  implements ProductsDAO{
         }
         
        return products; 
+    }
+
+    @Override
+    @Transactional
+    public Products getProduct(int id) {
+        
+        Session currSess = sessionFactory.getCurrentSession();
+        
+        Products prod = currSess.get(Products.class, id);
+
+        return prod;
+    }
+    
+    @Override
+    @Transactional
+    public void saveProduct(Products product) {
+        
+        Session currSess = sessionFactory.getCurrentSession();
+        
+        System.out.println("WOW: " + product);
+        
+        currSess.saveOrUpdate(product);
+        
+        System.out.println("REACHED");
     }
     
 }

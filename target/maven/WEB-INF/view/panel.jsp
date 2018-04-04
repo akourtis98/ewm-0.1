@@ -25,11 +25,16 @@
                     <tr>
                         <th>title</th>
                         <th>category</th>
+                        <th>Action</th>
                     </tr>
                     <c:forEach var="tempProducts" items="${products}">
+                        <c:url var="updateLink" value="updateProduct">
+                            <c:param name="id" value="${tempProducts.id}"/>
+                        </c:url>
                         <tr>
                             <td>${tempProducts.title}</td>
                             <td>${tempProducts.category}</td>
+                            <td><a href="${updateLink}">Update</a></td>
                         </tr>
                     </c:forEach>
     </table>
