@@ -5,7 +5,6 @@
  */
 package com.alex.springsecurity.demo.controller;
 
-import com.alex.springsecurity.demo.dao.Authorities;
 import com.alex.springsecurity.demo.dao.Products;
 import javax.validation.Valid;
 import org.hibernate.Session;

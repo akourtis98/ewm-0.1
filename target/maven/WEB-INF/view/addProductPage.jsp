@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sign up</title>
+        <title>Add a product</title>
     </head>
     <body>
-        <h1>Sign up</h1>
+        <h1>Add a product</h1>
         <hr>
         <div style="margin: auto; width:500px;">
             Fill out the form below. Asterisk (*) means required
@@ -19,15 +19,16 @@
                 <br><br>
                 
 
-                Please type category (*)<form:select path="category">
-                    <option value="volvo">Shoes</option>
-                    <option value="saab">Jackets</option>
-                    <option value="opel">Hats</option>
+                Please type category (*)
+                <form:select path="category">
+                    <option value="Shoes">Shoes</option>
+                    <option value="Jackets">Jackets</option>
+                    <option value="Hats">Hats</option>
                 </form:select>
                 <form:errors path="category" cssClass="error"/>
                
                 <br><br>    
-                <input type="submit" value="Sign up">
+                <input type="submit" value="Complete">
                 
               </form:form> 
                 <br>

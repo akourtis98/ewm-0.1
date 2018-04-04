@@ -19,12 +19,80 @@
 
 	<dependencies>
 
+                <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
+          <dependency>
+              <groupId>org.hibernate</groupId>
+              <artifactId>hibernate-c3p0</artifactId>
+              <version>5.2.12.Final</version>
+          </dependency>
+
+          <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+          <dependency>
+              <groupId>org.hibernate.javax.persistence</groupId>
+              <artifactId>hibernate-jpa-2.1-api</artifactId>
+              <version>1.0.0.Final</version>
+          </dependency>
+
+          <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-aop</artifactId>
+              <version>5.0.2.RELEASE</version>
+          </dependency>
+
+          <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-web</artifactId>
+              <version>5.0.2.RELEASE</version>
+          </dependency>
+
+          <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-core</artifactId>
+              <version>5.0.2.RELEASE</version>
+          </dependency>
+
+          <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+          <dependency>
+              <groupId>javax.servlet</groupId>
+              <artifactId>jstl</artifactId>
+              <version>1.2</version>
+          </dependency>
+
+          <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-orm</artifactId>
+              <version>4.2.0.RELEASE</version>
+               <type>jar</type>
+          </dependency>
+
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-tx</artifactId>
+              <version>5.0.2.RELEASE</version>
+          </dependency>
+          <dependency>
+              <groupId>org.apache.maven</groupId>
+              <artifactId>maven-model</artifactId>
+              <version>3.1.1</version>
+              <type>jar</type>
+          </dependency>
+          <dependency>
+              <groupId>javax</groupId>
+              <artifactId>javaee-web-api</artifactId>
+              <version>7.0</version>
+              <scope>provided</scope>
+          </dependency>
             
                 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
                <dependency>
                    <groupId>org.hibernate</groupId>
                    <artifactId>hibernate-core</artifactId>
-                   <version>5.1.0.Final</version>
+                   <version>5.2.12.Final</version>
+                      <type>jar</type>
                </dependency>
 
                <dependency>
@@ -67,6 +135,12 @@
 		    <version>${springsecurity.version}</version>
 		</dependency>
 		
+                <dependency>
+                    <groupId>org.javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                    <version>3.18.2-GA</version>
+                </dependency>
+                
                 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
                 <dependency>
                     <groupId>mysql</groupId>
@@ -93,33 +167,21 @@
 			<artifactId>javax.servlet.jsp-api</artifactId>
 			<version>2.3.1</version>
 		</dependency>
-
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
+                
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
-		 <type>jar</type>
-		</dependency>
-                
-            <dependency>
-             <groupId>org.hibernate.javax.persistence</groupId>
-             <artifactId>hibernate-jpa-2.1-api</artifactId>
-             <version>1.0.0.Final</version>
-             <type>jar</type>
-            </dependency>
+                        <type>jar</type>
+		</dependency>              
 
-            <dependency>
+  <dependency>
              <groupId>javax.validation</groupId>
              <artifactId>validation-api</artifactId>
              <version>1.1.0.Final</version>
              <type>jar</type>
             </dependency>
+          
 
          
 	</dependencies>

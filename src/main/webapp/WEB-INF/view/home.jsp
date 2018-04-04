@@ -49,7 +49,7 @@
     </security:authorize>
 
     <security:authorize access="hasRole('ADMIN')">
-        <a href="${pageContext.request.contextPath}/panel">management panel (only for managers)</a>
+        <a href="${pageContext.request.contextPath}/panel/list">management panel (only for managers)</a>
     <br>
     </security:authorize>
 
