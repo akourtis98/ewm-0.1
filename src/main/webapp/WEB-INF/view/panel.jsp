@@ -31,10 +31,14 @@
                         <c:url var="updateLink" value="updateProduct">
                             <c:param name="id" value="${tempProducts.id}"/>
                         </c:url>
+                         <c:url var="deleteLink" value="deleteProduct">
+                            <c:param name="id" value="${tempProducts.id}"/>
+                        </c:url>
                         <tr>
                             <td>${tempProducts.title}</td>
                             <td>${tempProducts.category}</td>
                             <td><a href="${updateLink}">Update</a></td>
+                            <td><a href="${deleteLink}" onclick=" if (!(confirm('Are you sure you want to delete this product'))) return false">Delete</a></td>
                         </tr>
                     </c:forEach>
     </table>

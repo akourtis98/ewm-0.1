@@ -55,5 +55,13 @@ public class Panel {
         model.addAttribute("Products", prod);
                 
         return "productform";
-    }
+    }  
+    
+    @GetMapping("/deleteProduct")
+    public String delFormUpd(@RequestParam("id") int id){
+        
+        productService.deleteProd(id);
+        
+        return "redirect:/panel/list";
+    } 
 }

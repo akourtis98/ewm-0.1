@@ -28,12 +28,22 @@ public class ProductServiceImpl implements ProductService{
         return productsDAO.getProducts();
     }
 
+    @Override
+    @Transactional
     public Products getProduct(int id) {
        return productsDAO.getProduct(id);
     }
-
+    
+    @Override
+    @Transactional
     public void saveProduct(Products product) {
         
         productsDAO.saveProduct(product);
+    }
+
+    @Override
+    @Transactional
+    public void deleteProd(int id) {
+         productsDAO.deleteProd(id);
     }
 }

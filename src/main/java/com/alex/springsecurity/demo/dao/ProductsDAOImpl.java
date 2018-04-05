@@ -65,4 +65,17 @@ public class ProductsDAOImpl  implements ProductsDAO{
         System.out.println("REACHED");
     }
     
+    @Override
+    @Transactional
+    public void deleteProd(int id){
+        
+        Session currSess = sessionFactory.getCurrentSession();
+        
+        Query q = currSess.createQuery("delete from Products where id=:id");
+        
+        q.setParameter("id", id);
+        
+        q.executeUpdate();
+    }
+    
 }

@@ -12,6 +12,8 @@ import java.util.List;
  * @author alexkourtis11
  */
 public interface ProductsDAO{
+
+    public void deleteProd(int id);
     
     public List<Products> getProducts();
     
