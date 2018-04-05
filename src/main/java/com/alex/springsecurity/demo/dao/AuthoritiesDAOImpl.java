@@ -5,8 +5,10 @@
  */
 package com.alex.springsecurity.demo.dao;
 
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,5 +29,18 @@ public class AuthoritiesDAOImpl implements AuthoritiesDAO {
         Session currSess = sessionFactory.getCurrentSession();
      
         currSess.saveOrUpdate(authorities);     
+    }
+
+    @Override
+    @Transactional
+    public void deleteAuthority(String username) {
+        Session currSess = sessionFactory.getCurrentSession();
+        
+        Query q =
+                currSess.createQuery("delete from Authorities where username=:username");
+        
+        q.setParameter("username", username);   
+        
+        q.executeUpdate();
     }
 }

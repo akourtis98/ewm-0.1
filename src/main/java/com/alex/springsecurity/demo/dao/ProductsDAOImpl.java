@@ -33,11 +33,7 @@ public class ProductsDAOImpl  implements ProductsDAO{
                 currentSession.createQuery("from Products", Products.class);
         
         List<Products> products = q.getResultList();
-        
-        for (Products p : products ){
-            System.out.println("HERE IT IS " + p);
-        }
-        
+               
        return products; 
     }
 

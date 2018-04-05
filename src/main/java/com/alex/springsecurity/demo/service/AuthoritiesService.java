@@ -14,5 +14,6 @@ import com.alex.springsecurity.demo.dao.Authorities;
 public interface AuthoritiesService {
     
     public void AuthoServ(Authorities authorities);
-    
+
+    public void deleteAuthority(String username);
 }

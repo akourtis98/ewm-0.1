@@ -5,8 +5,10 @@
  */
 package com.alex.springsecurity.demo.dao;
 
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +29,32 @@ public class UsersDAOImpl implements UsersDAO {
         Session currSess = sessionFactory.getCurrentSession();
      
         currSess.saveOrUpdate(user);     
+    }
+
+    @Override
+    @Transactional
+    public List<User> getUsers() {
+        Session currSess = sessionFactory.getCurrentSession();
+        
+        Query<User> q =
+                currSess.createQuery("from User", User.class);
+        
+        List<User> users = q.getResultList();
+               
+       return users; 
+    }
+
+    @Override
+    @Transactional
+    public void deleteUser(String username) {
+        Session currSess = sessionFactory.getCurrentSession();
+        
+        Query q =
+                currSess.createQuery("delete from User where username=:username");
+        
+        q.setParameter("username", username);
+        
+        q.executeUpdate();
     }
     
 }

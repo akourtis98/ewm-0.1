@@ -5,6 +5,8 @@
  */
 package com.alex.springsecurity.demo.dao;
 
+import java.util.List;
+
 /**
  *
  * @author alexkourtis11
@@ -12,4 +14,8 @@ package com.alex.springsecurity.demo.dao;
 public interface UsersDAO {
     
     public void saveProduct(User user);
+
+    public List<User> getUsers();
+
+    public void deleteUser(String username);
 }

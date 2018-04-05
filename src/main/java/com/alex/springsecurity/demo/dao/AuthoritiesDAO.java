@@ -5,11 +5,15 @@
  */
 package com.alex.springsecurity.demo.dao;
 
+import java.util.List;
+
 /**
  *
  * @author alexkourtis11
  */
 public interface AuthoritiesDAO {
     
-     public void saveAuthorities(Authorities authorities);
+    public void saveAuthorities(Authorities authorities);
+
+    public void deleteAuthority(String username);
 }

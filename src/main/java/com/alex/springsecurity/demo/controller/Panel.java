@@ -6,7 +6,10 @@
 package com.alex.springsecurity.demo.controller;
 
 import com.alex.springsecurity.demo.dao.Products;
+import com.alex.springsecurity.demo.dao.User;
+import com.alex.springsecurity.demo.service.AuthoritiesService;
 import com.alex.springsecurity.demo.service.ProductService;
+import com.alex.springsecurity.demo.service.UserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +31,12 @@ public class Panel {
     @Autowired
     private ProductService productService;
     
+    @Autowired
+    private AuthoritiesService authoritiesService;
+    
+    @Autowired
+    private UserService userService;
+    
     @RequestMapping("/list")
     public String panel(Model model){
       
@@ -36,6 +45,14 @@ public class Panel {
         model.addAttribute("products", products);
                      
         return "panel";
+    }  
+    @RequestMapping("/list-users")
+    public String panelUsers(Model model){
+      
+        List<User> users = userService.getUsers();    
+        model.addAttribute("users", users);
+        
+        return "panel-users";
     }  
     
     @PostMapping("/saveCustomer")
@@ -55,7 +72,27 @@ public class Panel {
         model.addAttribute("Products", prod);
                 
         return "productform";
+    } 
+    
+    @GetMapping("/updateUser")
+    public String updateUser(@RequestParam("username") String username,
+            Model model){
+        
+        //Products prod = productService.getProduct(id);
+        
+        //model.addAttribute("Products", prod);
+                
+        return "productform";
     }  
+    
+    @GetMapping("/deleteUser")
+    public String delFormUpd1(@RequestParam("username") String username){
+        
+        authoritiesService.deleteAuthority(username);
+        userService.deleteUser(username);
+        
+        return "redirect:/panel/list-users";
+    } 
     
     @GetMapping("/deleteProduct")
     public String delFormUpd(@RequestParam("id") int id){

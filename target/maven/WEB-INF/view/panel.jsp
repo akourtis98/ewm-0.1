@@ -20,6 +20,9 @@
         Role: <security:authentication property="principal.authorities" />
     </h4>
     <br>
+    <a href="list-users" >
+    <h3> for users management click here</h3>
+    </a>
     <p>here are all the products:</p><hr>
     <table style="width:45%;">
                     <tr>
