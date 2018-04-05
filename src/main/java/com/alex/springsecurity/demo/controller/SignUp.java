@@ -69,44 +69,5 @@ public class SignUp {
             return "successignup";
         }
     }
-
-    
-    
-//    private static void write(String username, String password){
-//         // create session factory
-//        SessionFactory factory = new Configuration()
-//                .configure("hibernate.cfg.xml")
-//                .addAnnotatedClass(com.alex.springsecurity.demo.dao.User.class)
-//                .addAnnotatedClass(com.alex.springsecurity.demo.dao.Authorities.class)
-//                .buildSessionFactory();
-//        
-//        // create session@
-//        Session session = factory.getCurrentSession();
-//        try{
-//            
-//            System.out.println("creating new user");
-//            User tempUser = new com.alex.springsecurity.demo.dao.User(username ,"{noop}"+password, 1);
-//            Authorities tempAuthorities= new com.alex.springsecurity.demo.dao.Authorities(username , "ROLE_USER");
-//            
-//            session.beginTransaction();
-//             
-//            System.out.println("beginning transaction");
-//            session.save(tempUser);
-//            
-//            session.getTransaction().commit();
-//            
-//            session = factory.getCurrentSession();
-//            
-//            session.beginTransaction();
-//             
-//            session.save(tempAuthorities);
-//            
-//            session.getTransaction().commit();
-//              
-//             }
-//        finally{
-//            factory.close();
-//        }
-//    }
 }
 
