@@ -57,7 +57,6 @@ public class AddProduct {
         }
         else{
             productService.saveProduct(Products);
-            //  write(Products.getTitle(), Products.getCategory());
             return "successproduct";
         }
     }
