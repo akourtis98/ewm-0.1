@@ -1,4 +1,5 @@
 <%@page import="com.alex.springsecurity.demo.dao.Products"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.alex.springsecurity.demo.controller.Portfolio"%>
 <%@page import="java.util.List"%>
@@ -88,19 +89,18 @@
                 <a href="${pageContext.request.contextPath}/portfolio">Ascending</a>
                 <a href="${pageContext.request.contextPath}/portfolio">Descending</a>
             </div>
+            
+
+            
             <div id="main">
                 <p> here are my products </p>
-                 <p> <% 
-
-            List projList = new Products(Portfolio.query("")).getList();
-            Iterator it = projList.iterator();
-            while(it.hasNext()){
-                Products obj = (Products)it.next(); %>
-                 <p> <div id="item"> <p><%= obj.getTitle() %> </p></div> </p>
-            <% }  %> </p>
-                </div>
-        </div>
-    </div>
+                <c:forEach var="Products" items="${products}">
+                    <div id="item">
+                        <p>${Products.title}</p>
+                        <p>${Products.category}</p>
+                    </div>
+                </c:forEach>
+            </div>
     <div id="footer">
         this is the footer
     </div>

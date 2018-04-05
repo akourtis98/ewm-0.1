@@ -23,7 +23,7 @@
     <br>
     </security:authorize>
        <security:authorize access="hasRole('ANONYMOUS')">
-        <a href="${pageContext.request.contextPath}/denied">Portfolio</a>
+        <a href="${pageContext.request.contextPath}/denied">Products</a>
     <br>
     </security:authorize>
         <security:authorize access="hasRole('ANONYMOUS')">
@@ -36,7 +36,7 @@
     <br>
     </security:authorize>
      <security:authorize access="hasAnyRole('USER', 'ADMIN')">
-        <a href="${pageContext.request.contextPath}/portfolio">Portfolio</a>
+        <a href="${pageContext.request.contextPath}/portfolio">Products</a>
     <br>
     </security:authorize>
      <security:authorize access="hasAnyRole('USER', 'ADMIN')">
