@@ -21,5 +21,7 @@ public interface ProductService {
     public void saveProduct(Products product);
 
     public void deleteProd(int id);
+
+    public List<Products> searchProducts(String searchTerm);
     
 }

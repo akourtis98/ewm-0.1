@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -69,6 +70,28 @@ public class Panel {
         userService.saveProduct(user);
         
         return "redirect:/panel/list-users";
+    }
+    
+    @RequestMapping(value="search", method = RequestMethod.POST)
+    public String searchProducts(@RequestParam("searchTerm") String searchTerm,
+                                    Model theModel) {
+        
+    List<Products> products = productService.searchProducts(searchTerm);
+                
+        theModel.addAttribute("products", products);
+       
+        return "list-results";
+    }
+            
+    @RequestMapping(value="search-users", method = RequestMethod.POST)
+    public String searchUsers(@RequestParam("username") String searchTerm,
+                                    Model theModel) {
+  
+        List<User> users = userService.searchUsers(searchTerm);
+              
+        theModel.addAttribute("users", users);
+        
+        return "list-results-uers";
     }
     
     @GetMapping("/updateProduct")

@@ -21,4 +21,6 @@ public interface UsersDAO {
     public void deleteUser(String username);
 
     public User getUserData(String username);
+
+    public List<User> searchUsers(String searchTerm);
 }

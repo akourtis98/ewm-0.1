@@ -11,7 +11,10 @@
 </head>
 <body>
     <h1> Homepage</h1>
-    
+     <form:form action="panel/search" method="POST">
+            <input type="search" id="mySearch" name="searchTerm" 
+            placeholder="Search the site...">  <button>Search</button>
+            </form:form>
     <security:authorize access="hasRole('ANONYMOUS')">
         <i style="color: gray"> You are currently not logged in. </i>
     </security:authorize>

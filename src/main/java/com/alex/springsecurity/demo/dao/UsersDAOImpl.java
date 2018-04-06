@@ -60,10 +60,32 @@ public class UsersDAOImpl implements UsersDAO {
     @Override
     @Transactional
     public User getUserData(String username) {
-        Session currSess = sessionFactory.getCurrentSession();
+       Session currSess = sessionFactory.getCurrentSession();
         
        User user = currSess.get(User.class, username);
 
        return user; 
+    }
+
+    @Override
+    @Transactional
+    public List<User> searchUsers(String searchTerm) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        
+        Query q = null;
+        
+        if (searchTerm != null && searchTerm.trim().length() > 0) {
+
+            q =currentSession.createQuery("from User where lower(username) like :term or lower(password) like :term", User.class);
+            q.setParameter("term", "%" + searchTerm.toLowerCase() + "%");
+
+        }
+        else {
+            q =currentSession.createQuery("from User", User.class);            
+        }
+        
+        List<User> users = q.getResultList();
+                      
+        return users;     
     }
 }

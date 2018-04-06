@@ -1,5 +1,6 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,10 @@
         </style>
     </head>
     <body>
+        <form:form action="search" method="POST">
+            <input type="search" id="mySearch" name="searchTerm" 
+            placeholder="Search the site...">  <button>Search</button>
+            </form:form>
         <h1>Hello managers!</h1>
          <h4> User: <security:authentication property="principal.username"/> 
         <br>

@@ -73,5 +73,27 @@ public class ProductsDAOImpl  implements ProductsDAO{
         
         q.executeUpdate();
     }
+
+    @Override
+    @Transactional
+    public List<Products> searchProducts(String searchTerm) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        
+        Query q = null;
+        
+        if (searchTerm != null && searchTerm.trim().length() > 0) {
+
+            q =currentSession.createQuery("from Products where lower(title) like :term or lower(category) like :term", Products.class);
+            q.setParameter("term", "%" + searchTerm.toLowerCase() + "%");
+
+        }
+        else {
+            q =currentSession.createQuery("from Products", Products.class);            
+        }
+        
+        List<Products> products = q.getResultList();
+                      
+        return products;      
+    }
     
 }

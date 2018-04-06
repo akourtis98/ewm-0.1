@@ -20,5 +20,7 @@ public interface ProductsDAO{
     public Products getProduct(int id);
 
     public void saveProduct(Products product);
+
+    public List<Products> searchProducts(String searchTerm);
     
 }
