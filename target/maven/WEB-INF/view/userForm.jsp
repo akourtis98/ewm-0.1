@@ -12,22 +12,10 @@
         <div style="margin: auto; width:500px;">
             Fill out the form below. Asterisk (*) means required
             <br><br>
-            <form:form action="saveCustomer" modelAttribute="Products" method="POST">
-                <form:hidden path="id"/>
-                Please edit title of product: <form:input path="title" type="text"/>
+            <form:form action="saveUser" modelAttribute="User" method="POST">
+                Please edit username: <form:input path="password" type="text"/>
                 <br><br>
-                Please edit price of product: <form:input path="price" type="text"/>
-                <br><br>
-                Please edit the category:
-                <form:select path="category">
-                    <option value="Shoes">Shoes</option>
-                    <option value="Jackets">Jackets</option>
-                    <option value="Hats">Hats</option>
-                </form:select>
-               
-                <br><br>    
                 <input type="submit" value="Complete">
-                
               </form:form> 
                 <br>
                 <hr>

@@ -32,7 +32,7 @@
                     </tr>
                     <c:forEach var="users" items="${users}">
                           <c:url var="updateLink" value="updateUser">
-                            <c:param name="id" value="${tempProducts.id}"/>
+                            <c:param name="username" value="${users.username}"/>
                         </c:url>
                              <c:url var="deleteLink" value="deleteUser">
                                 <c:param name="username" value="${users.username}"/>

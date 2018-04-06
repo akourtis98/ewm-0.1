@@ -5,6 +5,7 @@
  */
 package com.alex.springsecurity.demo.dao;
 
+import com.alex.springsecurity.demo.service.UserService;
 import java.util.List;
 
 /**
@@ -18,4 +19,6 @@ public interface UsersDAO {
     public List<User> getUsers();
 
     public void deleteUser(String username);
+
+    public User getUserData(String username);
 }

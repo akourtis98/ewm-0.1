@@ -16,7 +16,8 @@
                 <form:hidden path="id"/>
                 Please edit title of product: <form:input path="title" type="text"/>
                 <br><br>
-                
+                Please edit price of product: <form:input path="price" type="text"/>
+                <br><br>
                 Please edit the category:
                 <form:select path="category">
                     <option value="Shoes">Shoes</option>

@@ -61,6 +61,14 @@ public class Panel {
         productService.saveProduct(product);
         
         return "redirect:/panel/list";
+    }  
+            
+    @PostMapping("/saveUser")
+    public String saveUser(@ModelAttribute("User")User user){
+        
+        userService.saveProduct(user);
+        
+        return "redirect:/panel/list-users";
     }
     
     @GetMapping("/updateProduct")
@@ -78,11 +86,11 @@ public class Panel {
     public String updateUser(@RequestParam("username") String username,
             Model model){
         
-        //Products prod = productService.getProduct(id);
+        User User = userService.getUserData(username);
         
-        //model.addAttribute("Products", prod);
+        model.addAttribute("User", User);
                 
-        return "productform";
+        return "userForm";
     }  
     
     @GetMapping("/deleteUser")

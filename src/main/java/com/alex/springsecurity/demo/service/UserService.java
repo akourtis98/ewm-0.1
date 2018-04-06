@@ -19,4 +19,6 @@ public interface UserService {
     public List<User> getUsers();
 
     public void deleteUser(String username);
+
+    public User getUserData(String username);
 }

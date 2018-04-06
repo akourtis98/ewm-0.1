@@ -56,5 +56,14 @@ public class UsersDAOImpl implements UsersDAO {
         
         q.executeUpdate();
     }
-    
+
+    @Override
+    @Transactional
+    public User getUserData(String username) {
+        Session currSess = sessionFactory.getCurrentSession();
+        
+       User user = currSess.get(User.class, username);
+
+       return user; 
+    }
 }

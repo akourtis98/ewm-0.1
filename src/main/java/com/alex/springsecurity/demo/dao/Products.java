@@ -31,13 +31,6 @@ public class Products implements Serializable {
         this.title = title;
         this.category = category;
     }
-    
-    public Products(List<Products> Products){
-        this.list = Products;
-    }
-    
-    @Transient
-    private List<Products> list;
 
     @Id
     @Column(name="id")
@@ -87,15 +80,12 @@ public class Products implements Serializable {
     }
     
     @Column(name="enabled")
-    @Transient
     private int enabled;
     
     @Column(name="price")
-    @Transient
     private int price;
     
     @Column(name="description")
-    @Transient
     private String description;
     
      
@@ -115,16 +105,8 @@ public class Products implements Serializable {
         this.title = title;
     }
 
-    public List getList() {
-        return list;
-    }
-
-    public void setList(List list) {
-        this.list = list;
-    }
-
     @Override
     public String toString() {
-        return "Products{" + "list=" + list + ", id=" + id + ", title=" + title + ", category=" + category + ", enabled=" + enabled + ", price=" + price + ", description=" + description + '}';
+        return "Products{"+ " id=" + id + ", title=" + title + ", category=" + category + ", enabled=" + enabled + ", price=" + price + ", description=" + description + '}';
     }
 }

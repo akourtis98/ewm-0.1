@@ -57,7 +57,7 @@ public class SignUp {
         if (res.hasErrors()){
             return "signup";
         }
-        else{
+        else{   
             User tempUser = new com.alex.springsecurity.demo.dao.User(user.getUsername() ,"{noop}"+user.getPassword(), 1);
             Authorities tempAuthorities= new com.alex.springsecurity.demo.dao.Authorities(user.getUsername() , "ROLE_USER");
             userService.saveProduct(tempUser);
