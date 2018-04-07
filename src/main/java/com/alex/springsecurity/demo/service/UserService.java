@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface UserService {
     
-    public void saveProduct(User user);
+    public void saveUser(User user);
 
     public List<User> getUsers();
 

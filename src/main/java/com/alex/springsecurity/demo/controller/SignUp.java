@@ -22,7 +22,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author alexkourtis11
+ * @author alexkourtis11    @Column(name="username")
+    @NotNull(message="is required")
+    @Size(min=1, message="is required")
+    @Id
+    private String username;
  */
 @Controller
 @RequestMapping("/user")
@@ -57,11 +61,9 @@ public class SignUp {
         if (res.hasErrors()){
             return "signup";
         }
-        else{   
-            User tempUser = new com.alex.springsecurity.demo.dao.User(user.getUsername() ,"{noop}"+user.getPassword(), 1);
-            Authorities tempAuthorities= new com.alex.springsecurity.demo.dao.Authorities(user.getUsername() , "ROLE_USER");
-            userService.saveProduct(tempUser);
-            authoritiesService.AuthoServ(tempAuthorities);
+        else{
+            userService.saveUser(new User(user.getUsername() ,"{noop}"+user.getPassword(), 1));
+            authoritiesService.AuthoServ(new Authorities(user.getUsername() , "ROLE_USER"));
             return "successignup";
         }
     }

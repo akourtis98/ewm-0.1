@@ -25,21 +25,19 @@ public class UsersDAOImpl implements UsersDAO {
     
     @Override
     @Transactional
-    public void saveProduct(User user) {
-        Session currSess = sessionFactory.getCurrentSession();
+    public void saveUser(User user) {
      
-        currSess.saveOrUpdate(user);     
+        sessionFactory.getCurrentSession().saveOrUpdate(user);     
+        
     }
 
     @Override
     @Transactional
     public List<User> getUsers() {
-        Session currSess = sessionFactory.getCurrentSession();
-        
-        Query<User> q =
-                currSess.createQuery("from User", User.class);
-        
-        List<User> users = q.getResultList();
+               
+        List<User> users = sessionFactory.getCurrentSession()
+                .createQuery("from User", User.class)
+                .getResultList();
                
        return users; 
     }
@@ -47,22 +45,18 @@ public class UsersDAOImpl implements UsersDAO {
     @Override
     @Transactional
     public void deleteUser(String username) {
-        Session currSess = sessionFactory.getCurrentSession();
-        
-        Query q =
-                currSess.createQuery("delete from User where username=:username");
-        
-        q.setParameter("username", username);
-        
-        q.executeUpdate();
+       
+        sessionFactory.getCurrentSession()
+                .createQuery("delete from User where username=:username")
+                .setParameter("username", username)
+                .executeUpdate();
     }
 
     @Override
     @Transactional
     public User getUserData(String username) {
-       Session currSess = sessionFactory.getCurrentSession();
         
-       User user = currSess.get(User.class, username);
+       User user = sessionFactory.getCurrentSession().get(User.class, username);
 
        return user; 
     }

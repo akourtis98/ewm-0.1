@@ -28,11 +28,10 @@ public class ProductsDAOImpl  implements ProductsDAO{
     public List<Products> getProducts() {
         
         Session currentSession = sessionFactory.openSession();
-        
-        Query<Products> q =
-                currentSession.createQuery("from Products", Products.class);
-        
-        List<Products> products = q.getResultList();
+       
+        List<Products> products = currentSession
+                .createQuery("from Products", Products.class)
+                .getResultList();
                
        return products; 
     }
@@ -41,9 +40,9 @@ public class ProductsDAOImpl  implements ProductsDAO{
     @Transactional
     public Products getProduct(int id) {
         
-        Session currSess = sessionFactory.getCurrentSession();
-        
-        Products prod = currSess.get(Products.class, id);
+        Products prod =  sessionFactory
+                .getCurrentSession()
+                .get(Products.class, id);
 
         return prod;
     }
@@ -52,26 +51,18 @@ public class ProductsDAOImpl  implements ProductsDAO{
     @Transactional
     public void saveProduct(Products product) {
         
-        Session currSess = sessionFactory.getCurrentSession();
+        sessionFactory.getCurrentSession().saveOrUpdate(product);
         
-        System.out.println("WOW: " + product);
-        
-        currSess.saveOrUpdate(product);
-        
-        System.out.println("REACHED");
     }
     
     @Override
     @Transactional
     public void deleteProd(int id){
         
-        Session currSess = sessionFactory.getCurrentSession();
+        sessionFactory.getCurrentSession()
+                .createQuery("delete from Products where id=:id")
+                .setParameter("id", id).executeUpdate();
         
-        Query q = currSess.createQuery("delete from Products where id=:id");
-        
-        q.setParameter("id", id);
-        
-        q.executeUpdate();
     }
 
     @Override

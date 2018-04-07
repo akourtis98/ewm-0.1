@@ -9,9 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -23,18 +21,14 @@ import javax.validation.constraints.Size;
 @Table(name="users")
 public class User implements Serializable {
     
-    @Transient
-    private int id;
-    
     @Column(name="username")
+    @Id
     @NotNull(message="is required")
     @Size(min=1, message="is required")
-    @Id
     private String username;
     
     @Column(name="enabled")
     private int enabled;
-    
     
     @Column(name="password")
     @NotNull(message="is required")
@@ -48,7 +42,12 @@ public class User implements Serializable {
         this.password = password;
         this.enabled = enabled;
     }
-        
+     
+    public User(String password, int enabled){
+        this.password = password;
+        this.enabled = enabled;
+    }
+    
     public void setUsername(String username) {
         this.username = username;
     }
@@ -64,15 +63,7 @@ public class User implements Serializable {
     public String getPassword() {
         return password;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    
     public int getEnabled() {
         return enabled;
     }

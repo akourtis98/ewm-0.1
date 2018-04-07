@@ -10,8 +10,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
 
 /** 
  *
@@ -20,9 +18,6 @@ import javax.persistence.Transient;
 @Entity
 @Table(name="authorities")
 public class Authorities implements Serializable {
-    
-    @Transient
-    private int id;
     
     @Column(name="username")
     @Id
@@ -36,14 +31,6 @@ public class Authorities implements Serializable {
     public Authorities (String username, String authority){
         this.username = username;
         this.authority = authority;
-    }       
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {

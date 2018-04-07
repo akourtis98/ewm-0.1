@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  *
  * @author alexkourtis11
- */
+ */ 
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService{
     
     @Override
     @Transactional
-    public void saveProduct(User user) {
-        usersDAO.saveProduct(user);
+    public void saveUser(User user) {
+        usersDAO.saveUser(user);
     }
 
     @Override

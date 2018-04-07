@@ -14,7 +14,7 @@
             <br><br>
             <form:form action="saveUser" modelAttribute="User" method="POST">
                 Please edit username: <form:input path="password" type="text"/>
-                <br><br>
+                <form:hidden path="username"/>
                 <input type="submit" value="Complete">
               </form:form> 
                 <br>

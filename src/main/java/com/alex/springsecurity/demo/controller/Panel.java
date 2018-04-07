@@ -64,13 +64,14 @@ public class Panel {
         return "redirect:/panel/list";
     }  
             
-    @PostMapping("/saveUser")
+    @PostMapping("/saveUser")       
     public String saveUser(@ModelAttribute("User")User user){
         
-        userService.saveProduct(user);
+        userService.saveUser(user);
         
         return "redirect:/panel/list-users";
     }
+    
     
     @RequestMapping(value="search", method = RequestMethod.POST)
     public String searchProducts(@RequestParam("searchTerm") String searchTerm,
