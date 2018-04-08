@@ -5,9 +5,8 @@
  */
 package com.alex.springsecurity.demo.service;
 
-import com.alex.springsecurity.demo.dao.Authorities;
+import com.alex.springsecurity.demo.entities.Authorities;
 import com.alex.springsecurity.demo.dao.AuthoritiesDAO;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

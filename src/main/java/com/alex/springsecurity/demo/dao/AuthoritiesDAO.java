@@ -5,7 +5,7 @@
  */
 package com.alex.springsecurity.demo.dao;
 
-import java.util.List;
+import com.alex.springsecurity.demo.entities.Authorities;
 
 /**
  *

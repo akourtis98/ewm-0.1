@@ -5,6 +5,7 @@
  */
 package com.alex.springsecurity.demo.dao;
 
+import com.alex.springsecurity.demo.entities.User;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

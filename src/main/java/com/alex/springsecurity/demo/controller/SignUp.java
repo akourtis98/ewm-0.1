@@ -5,8 +5,8 @@
  */
 package com.alex.springsecurity.demo.controller;
 
-import com.alex.springsecurity.demo.dao.Authorities;
-import com.alex.springsecurity.demo.dao.User;
+import com.alex.springsecurity.demo.entities.Authorities;
+import com.alex.springsecurity.demo.entities.User;
 import com.alex.springsecurity.demo.service.AuthoritiesService;
 import com.alex.springsecurity.demo.service.UserService;
 import javax.validation.Valid;

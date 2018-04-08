@@ -5,9 +5,8 @@
  */
 package com.alex.springsecurity.demo.controller;
 
-import com.alex.springsecurity.demo.dao.Products;
+import com.alex.springsecurity.demo.entities.Products;
 import com.alex.springsecurity.demo.service.ProductService;
-import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -47,7 +46,7 @@ public class Portfolio {
         System.out.println("starting process");
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(com.alex.springsecurity.demo.dao.Products.class)
+                .addAnnotatedClass(com.alex.springsecurity.demo.entities.Products.class)
                 .buildSessionFactory();
         
             Session session = factory.getCurrentSession();

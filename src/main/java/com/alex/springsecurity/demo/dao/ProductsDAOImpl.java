@@ -5,6 +5,7 @@
  */
 package com.alex.springsecurity.demo.dao;
 
+import com.alex.springsecurity.demo.entities.Products;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,10 +27,8 @@ public class ProductsDAOImpl  implements ProductsDAO{
     
     @Override
     public List<Products> getProducts() {
-        
-        Session currentSession = sessionFactory.openSession();
-       
-        List<Products> products = currentSession
+              
+        List<Products> products = sessionFactory.openSession()
                 .createQuery("from Products", Products.class)
                 .getResultList();
                

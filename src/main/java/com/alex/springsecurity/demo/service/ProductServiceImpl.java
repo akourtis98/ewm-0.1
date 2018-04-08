@@ -5,7 +5,7 @@
  */
 package com.alex.springsecurity.demo.service;
 
-import com.alex.springsecurity.demo.dao.Products;
+import com.alex.springsecurity.demo.entities.Products;
 import com.alex.springsecurity.demo.dao.ProductsDAO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

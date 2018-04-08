@@ -5,7 +5,7 @@
  */
 package com.alex.springsecurity.demo.service;
 
-import com.alex.springsecurity.demo.dao.Authorities;
+import com.alex.springsecurity.demo.entities.Authorities;
 
 /**
  *

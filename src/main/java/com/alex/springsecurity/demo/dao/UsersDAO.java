@@ -5,7 +5,7 @@
  */
 package com.alex.springsecurity.demo.dao;
 
-import com.alex.springsecurity.demo.service.UserService;
+import com.alex.springsecurity.demo.entities.User;
 import java.util.List;
 
 /**

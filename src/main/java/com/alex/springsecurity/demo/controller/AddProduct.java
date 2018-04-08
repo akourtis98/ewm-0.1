@@ -5,12 +5,9 @@
  */
 package com.alex.springsecurity.demo.controller;
 
-import com.alex.springsecurity.demo.dao.Products;
+import com.alex.springsecurity.demo.entities.Products;
 import com.alex.springsecurity.demo.service.ProductService;
 import javax.validation.Valid;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
