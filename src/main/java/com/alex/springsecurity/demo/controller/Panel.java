@@ -77,7 +77,7 @@ public class Panel {
     public String searchProducts(@RequestParam("searchTerm") String searchTerm,
                                     Model theModel) {
         
-    List<Products> products = productService.searchProducts(searchTerm);
+        List<Products> products = productService.searchProducts(searchTerm);
                 
         theModel.addAttribute("products", products);
        

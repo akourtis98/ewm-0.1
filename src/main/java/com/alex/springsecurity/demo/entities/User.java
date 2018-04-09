@@ -20,7 +20,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="users")
 public class User implements Serializable {
-    
+
     @Column(name="username")
     @Id
     @NotNull(message="is required")

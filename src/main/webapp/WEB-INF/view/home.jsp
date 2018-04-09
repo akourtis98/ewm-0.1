@@ -43,6 +43,10 @@
     <br>
     </security:authorize>
      <security:authorize access="hasAnyRole('USER', 'ADMIN')">
+        <a href="${pageContext.request.contextPath}/shoppingcart/list">My shopping cart</a>
+    <br>
+    </security:authorize>
+     <security:authorize access="hasAnyRole('USER', 'ADMIN')">
         <a href="${pageContext.request.contextPath}/about">Contact</a>
     <br>
     </security:authorize>

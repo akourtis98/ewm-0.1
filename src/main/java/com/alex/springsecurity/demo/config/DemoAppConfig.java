@@ -88,7 +88,7 @@ public class DemoAppConfig {
            LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
            sessionFactory.setConfigLocation(config);
            sessionFactory.setPackagesToScan(
-           new String[] { "com.alex.springsecurity.demo.dao"});
+           new String[] { "com.alex.springsecurity.demo.entities"});
            sessionFactory.setDataSource(securityDataSource());
            return sessionFactory;
         }            

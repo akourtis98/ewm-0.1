@@ -51,4 +51,5 @@ public class UserServiceImpl implements UserService{
     public List<User> searchUsers(String searchTerm) {
         return usersDAO.searchUsers(searchTerm);
     }
+
 }

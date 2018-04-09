@@ -22,11 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author alexkourtis11    @Column(name="username")
-    @NotNull(message="is required")
-    @Size(min=1, message="is required")
-    @Id
-    private String username;
+ * @author alexkourtis11
  */
 @Controller
 @RequestMapping("/user")

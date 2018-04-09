@@ -1,4 +1,5 @@
-<%@page import="com.alex.springsecurity.demo.dao.Products"%>
+<%@page import="com.alex.springsecurity.demo.entities.Products"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.alex.springsecurity.demo.controller.Portfolio"%>
@@ -90,16 +91,18 @@
                 <a href="${pageContext.request.contextPath}/portfolio">Descending</a>
             </div>
             
-
-            
             <div id="main">
                 <p> here are my products </p>
                 <c:forEach var="Products" items="${products}">
+                    <c:url var="AddToCartLink" value="AddToCartLink">
+                            <c:param name="id" value="${Products.id}"/>
+                    </c:url>
                     <div id="item">
                         <p>${Products.title}</p>
                         <p>${Products.category}</p>
+                        <a href="${AddToCartLink}">Add to cart!</a>
                     </div>
-                </c:forEach>
+                </c:forEach>  
             </div>
     <div id="footer">
         this is the footer

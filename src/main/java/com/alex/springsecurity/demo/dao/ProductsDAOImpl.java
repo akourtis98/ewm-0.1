@@ -6,6 +6,7 @@
 package com.alex.springsecurity.demo.dao;
 
 import com.alex.springsecurity.demo.entities.Products;
+import com.alex.springsecurity.demo.entities.ShoppingCart;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -85,5 +86,24 @@ public class ProductsDAOImpl  implements ProductsDAO{
                       
         return products;      
     }
-    
+
+    @Override
+    @Transactional
+    public void addToCart(ShoppingCart cart) {
+        
+        sessionFactory.getCurrentSession().save(cart);
+        
+    }  
+
+    @Override
+    @Transactional
+    public List<ShoppingCart> getProductsFromCart(String username) {
+        
+         List<ShoppingCart> products = sessionFactory.openSession()
+                .createQuery("from ShoppingCart where user like :username", ShoppingCart.class)
+                .setParameter("username", username)
+                .getResultList();
+         
+        return products;
+    }
 }

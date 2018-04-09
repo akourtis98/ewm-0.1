@@ -6,6 +6,7 @@
 package com.alex.springsecurity.demo.dao;
 
 import com.alex.springsecurity.demo.entities.Products;
+import com.alex.springsecurity.demo.entities.ShoppingCart;
 import java.util.List;
 
 /**
@@ -23,5 +24,9 @@ public interface ProductsDAO{
     public void saveProduct(Products product);
 
     public List<Products> searchProducts(String searchTerm);
+
+    public void addToCart(ShoppingCart cart);
+
+    public List<ShoppingCart> getProductsFromCart(String username);
     
 }

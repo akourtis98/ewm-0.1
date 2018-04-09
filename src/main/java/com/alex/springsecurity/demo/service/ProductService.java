@@ -6,6 +6,7 @@
 package com.alex.springsecurity.demo.service;
 
 import com.alex.springsecurity.demo.entities.Products;
+import com.alex.springsecurity.demo.entities.ShoppingCart;
 import java.util.List;
 
 /**
@@ -23,5 +24,9 @@ public interface ProductService {
     public void deleteProd(int id);
 
     public List<Products> searchProducts(String searchTerm);
+
+    public void addToCart(ShoppingCart shoppingCart);
+
+    public List<ShoppingCart> getProductsFromCart(String username);
     
 }

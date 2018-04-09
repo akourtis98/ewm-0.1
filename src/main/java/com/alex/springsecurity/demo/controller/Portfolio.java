@@ -5,16 +5,15 @@
  */
 package com.alex.springsecurity.demo.controller;
 
-import com.alex.springsecurity.demo.entities.Products;
-import com.alex.springsecurity.demo.service.ProductService;
+import com.alex.springsecurity.demo.entities.*;
+import com.alex.springsecurity.demo.service.*;
 import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *
@@ -22,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class Portfolio {
+    
+    @Autowired
+    private UserService userService;
     
     @Autowired
     private ProductService productService;
@@ -41,18 +43,14 @@ public class Portfolio {
         return "products-1";
     }
     
-    
-    public static List<Products> query(String arg){
-        System.out.println("starting process");
-        SessionFactory factory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(com.alex.springsecurity.demo.entities.Products.class)
-                .buildSessionFactory();
+    @RequestMapping("/AddToCartLink")
+    public String addToCart(@RequestParam("id") int id){
+          
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
         
-            Session session = factory.getCurrentSession();
-            session.beginTransaction();
-        
-            
-            return factory.getCurrentSession().createQuery("from Products " + arg).list();
+        productService.addToCart(new ShoppingCart(id, username));
+         
+        return "redirect:/portfolio";
     }
 }

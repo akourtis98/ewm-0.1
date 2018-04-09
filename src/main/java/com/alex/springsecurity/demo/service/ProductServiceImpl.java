@@ -7,6 +7,7 @@ package com.alex.springsecurity.demo.service;
 
 import com.alex.springsecurity.demo.entities.Products;
 import com.alex.springsecurity.demo.dao.ProductsDAO;
+import com.alex.springsecurity.demo.entities.ShoppingCart;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,5 +52,17 @@ public class ProductServiceImpl implements ProductService{
     @Transactional
     public List<Products> searchProducts(String searchTerm) {
         return productsDAO.searchProducts(searchTerm);
+    }
+
+    @Override
+    @Transactional
+    public void addToCart(ShoppingCart cart) {
+        productsDAO.addToCart(cart);
+    }
+
+    @Override
+    @Transactional
+    public List<ShoppingCart> getProductsFromCart(String username) {
+        return productsDAO.getProductsFromCart(username);
     }
 }
