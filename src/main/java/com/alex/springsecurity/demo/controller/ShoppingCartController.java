@@ -13,7 +13,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -37,5 +39,16 @@ public class ShoppingCartController {
         model.addAttribute("products", products);
                      
         return "cart-panel";
-    }  
+    } 
+
+    @GetMapping("/deleteProductFromCart")
+    public String delFormCart(@RequestParam("id") int id){
+        
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        
+        productService.deleteProdFromCart(id, username);
+        
+        return "redirect:/shoppingcart/list";
+    }         
 }

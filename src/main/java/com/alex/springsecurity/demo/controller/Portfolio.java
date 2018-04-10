@@ -25,8 +25,10 @@ public class Portfolio {
     @Autowired
     private UserService userService;
     
-    @Autowired
+    @Autowired 
     private ProductService productService;
+    
+    private ShoppingCart shoppingCart;
     
     @RequestMapping("/portfolio")
     public String portfolio(Model model){
@@ -44,13 +46,13 @@ public class Portfolio {
     }
     
     @RequestMapping("/AddToCartLink")
-    public String addToCart(@RequestParam("id") int id){
-          
+    public String addToCart(@RequestParam("id") int id)
+    {      
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         
         productService.addToCart(new ShoppingCart(id, username));
-         
+        
         return "redirect:/portfolio";
     }
 }

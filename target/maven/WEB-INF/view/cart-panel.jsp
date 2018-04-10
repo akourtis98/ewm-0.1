@@ -31,14 +31,18 @@
     <p>here are all the products:</p><hr>
     <table style="width:45%;">
                     <tr>
-                        <th>title</th>
-                        <th>category</th>
+                        <th>username</th>
+                        <th>productid</th>
                         <th>Action</th>
                     </tr>
                     <c:forEach var="products" items="${products}">
+                         <c:url var="deleteLink" value="deleteProductFromCart">
+                            <c:param name="id" value="${products.id}"/>
+                        </c:url>
                         <tr>
                             <td>${products.user}</td>
                             <td>${products.product}</td>
+                            <td><a href="${deleteLink}">Delete</a></td>
                         </tr>
                     </c:forEach>
     </table>

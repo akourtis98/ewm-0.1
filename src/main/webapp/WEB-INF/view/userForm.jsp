@@ -16,7 +16,7 @@
                 Please edit username: <form:input path="password" type="text"/>
                 <form:hidden path="username"/>
                 <input type="submit" value="Complete">
-              </form:form> 
+             </form:form> 
                 <br>
                 <hr>
                 <a href="${pageContext.request.contextPath}/homepage">Go back to homepage</a>

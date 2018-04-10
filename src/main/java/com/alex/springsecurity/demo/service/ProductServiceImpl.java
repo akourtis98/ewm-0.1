@@ -65,4 +65,22 @@ public class ProductServiceImpl implements ProductService{
     public List<ShoppingCart> getProductsFromCart(String username) {
         return productsDAO.getProductsFromCart(username);
     }
+
+    @Override
+    @Transactional
+    public void deleteProdFromCart(int id, String username) {
+        productsDAO.deleteProdFromCart(id, username);
+    }
+
+    @Override
+    @Transactional
+    public List<Products> getQuantityOfProd(int id, String username) {
+        return productsDAO.getQuantityOfProd(id, username);
+    }
+
+    @Override
+    @Transactional
+    public void deleteProdFromCart2(int id, String username) {
+        productsDAO.deleteProdFromCart2(id, username);
+    }
 }

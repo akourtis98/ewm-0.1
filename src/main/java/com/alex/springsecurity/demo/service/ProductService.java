@@ -28,5 +28,10 @@ public interface ProductService {
     public void addToCart(ShoppingCart shoppingCart);
 
     public List<ShoppingCart> getProductsFromCart(String username);
-    
+
+    public void deleteProdFromCart(int id, String username);    
+
+    public List<Products> getQuantityOfProd(int id, String username);
+
+    public void deleteProdFromCart2(int id, String username);
 }

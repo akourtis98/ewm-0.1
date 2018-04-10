@@ -91,7 +91,7 @@ public class ProductsDAOImpl  implements ProductsDAO{
     @Transactional
     public void addToCart(ShoppingCart cart) {
         
-        sessionFactory.getCurrentSession().save(cart);
+        sessionFactory.getCurrentSession().saveOrUpdate(cart);
         
     }  
 
@@ -105,5 +105,34 @@ public class ProductsDAOImpl  implements ProductsDAO{
                 .getResultList();
          
         return products;
+    }
+    
+    @Override
+    @Transactional
+    public void deleteProdFromCart(int id, String username) {
+        sessionFactory.getCurrentSession()
+                .createQuery("delete from ShoppingCart where id=:id and user like :username")
+                .setParameter("id", id)
+                .setParameter("username", username)
+                .executeUpdate();
+    }
+    @Override
+    @Transactional
+    public void deleteProdFromCart2(int id, String username) {
+        sessionFactory.getCurrentSession()
+                .createQuery("delete from ShoppingCart where product=:id and user like :username")
+                .setParameter("id", id)
+                .setParameter("username", username)
+                .executeUpdate();
+    }
+    @Override
+    @Transactional
+    public List<Products> getQuantityOfProd(int id, String username) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from ShoppingCart where product=:id and user like :username")
+                .setCacheable(true)
+                .setParameter("id", id)
+                .setParameter("username", username)
+                .list();
     }
 }

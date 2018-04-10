@@ -28,14 +28,14 @@ public class ShoppingCart implements Serializable{
     
     @Column(name="user")
     private String user;
-
+     
     public ShoppingCart(){}
-
+    
     public ShoppingCart(int product, String user) {
         this.product = product;
         this.user = user;
     }
-
+    
     public int getId() {
         return id;
     }

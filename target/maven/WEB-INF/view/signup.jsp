@@ -26,7 +26,7 @@
                 
                 <input type="submit" value="Sign up">
                 
-              </form:form> 
+             </form:form> 
                 <br>
                 <hr>
                 <a href="${pageContext.request.contextPath}/homepage">Go back to homepage</a>

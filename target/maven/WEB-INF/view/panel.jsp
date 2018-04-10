@@ -34,6 +34,7 @@
                         <th>title</th>
                         <th>category</th>
                         <th>Action</th>
+                        <th>Action</th>
                     </tr>
                     <c:forEach var="tempProducts" items="${products}">
                         <c:url var="updateLink" value="updateProduct">
