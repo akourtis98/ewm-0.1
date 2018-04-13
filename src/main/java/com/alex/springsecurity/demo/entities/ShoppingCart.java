@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * @author alexkourtis11
  */
 @Entity
-@Table(name="shopping_cart")
+@Table(name="shopping_cart_product")
 public class ShoppingCart implements Serializable{
 
     @Column(name="id")
@@ -29,6 +29,17 @@ public class ShoppingCart implements Serializable{
     @Column(name="user")
     private String user;
      
+    @Column(name="price")
+    private int price;
+    
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
     public ShoppingCart(){}
     
     public ShoppingCart(int product, String user) {

@@ -25,14 +25,12 @@
         Role: <security:authentication property="principal.authorities" />
     </h4>
     <br>
-    <a href="list-users" >
-    <h3> for users management click here</h3>
-    </a>
     <p>here are all the products:</p><hr>
     <table style="width:45%;">
                     <tr>
                         <th>username</th>
                         <th>productid</th>
+                        <th>price</th>
                         <th>Action</th>
                     </tr>
                     <c:forEach var="products" items="${products}">
