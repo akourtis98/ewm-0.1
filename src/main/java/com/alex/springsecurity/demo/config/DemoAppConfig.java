@@ -18,6 +18,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
@@ -25,7 +27,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan("com.alex.springsecurity.demo")
 @PropertySource("classpath:persistence-mysql.properties")
-public class DemoAppConfig {
+public class DemoAppConfig extends WebMvcConfigurerAdapter{
 
 	@Autowired
         private Environment env;
@@ -42,7 +44,7 @@ public class DemoAppConfig {
 		
 		return viewResolver;
 	}
-        
+
         @Bean
         public DataSource securityDataSource(){
             
@@ -105,4 +107,10 @@ public class DemoAppConfig {
 
            return txManager;
         }
+        
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**")
+        .addResourceLocations("/resources/");
+    }
 }

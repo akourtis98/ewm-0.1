@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -25,7 +26,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                .antMatchers( "/homepage", "/", "/user/signup", "/user/processSignup", "portfolioShow", "/processSignup", "/user/successignup", "/user", "/signin", "/denied").permitAll()
+                .antMatchers( "/homepage", "/", "/user/signup", "/user/processSignup", "/resources/css/style.css", "portfolioShow", "/processSignup", "/user/successignup", "/user", "/signin", "/denied").permitAll()
                 .antMatchers("/panel").hasRole("ADMIN")
                 .antMatchers("/about").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/contact").hasAnyRole("USER", "ADMIN")
@@ -42,7 +43,6 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/denied");
                 
     }
-	
 }
 
 

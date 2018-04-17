@@ -1,6 +1,38 @@
-  form{
-            font-size: 19px;
+form{
+  font-size: 19px;
+}
+.error{
+      color: red;
   }
- .error{
-                color: red;
-            }
+    #header input{
+        display: inline;
+        font-size: 20px;
+        top: -25px;
+        margin-right: 25px;
+        position: relative;
+    }
+    #header a{
+        display: inline;
+        font-size: 20px;
+        margin-right: 25px;
+        position: relative;
+    }
+    #header_p_div1{
+        height: 40px;
+        display: inline;
+        position: relative;
+        top: 50px;
+    }
+    #header_p_div2{
+        height: 40px;
+        display: inline;
+        float: right;
+        position: relative;
+        top: 50px;
+    }
+    #header{
+        border: 1px solid black;
+        height: 90px;
+        width: 1300px;
+        margin: auto;
+    }
