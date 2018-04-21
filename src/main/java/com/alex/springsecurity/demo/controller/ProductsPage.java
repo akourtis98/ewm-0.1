@@ -20,16 +20,11 @@ import org.springframework.web.bind.annotation.*;
  * @author alexkourtis11
  */
 @Controller
-public class Portfolio {
-    
-    @Autowired
-    private UserService userService;
+public class ProductsPage {
     
     @Autowired 
     private ProductService productService;
-    
-    private ShoppingCart shoppingCart;
-    
+
     @RequestMapping("/portfolio")
     public String portfolio(Model model){
       
@@ -37,12 +32,7 @@ public class Portfolio {
         
         model.addAttribute("products", products);
         
-        return "portfolio";
-    }
-    
-    @RequestMapping("/products-1")
-    public String products1(){
-        return "products-1";
+        return "Products/products";
     }
     
     @RequestMapping("/AddToCartLink")
@@ -53,6 +43,6 @@ public class Portfolio {
         
         productService.addToCart(new ShoppingCart(id, username));
         
-        return "redirect:/portfolio";
+        return "redirect:/Products/products";
     }
 }

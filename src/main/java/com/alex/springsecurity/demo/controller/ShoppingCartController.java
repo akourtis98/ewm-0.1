@@ -39,7 +39,7 @@ public class ShoppingCartController {
         
         model.addAttribute("products", products);
                      
-        return "cart-panel";
+        return "ShoppingCart/cart-panel";
     } 
 
     @GetMapping("/deleteProductFromCart")
@@ -50,6 +50,6 @@ public class ShoppingCartController {
         
         productService.deleteProdFromCart(id, username);
         
-        return "redirect:/shoppingcart/list";
+        return "redirect:/ShoppingCart/shoppingcart/list";
     }         
 }

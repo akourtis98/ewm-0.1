@@ -45,7 +45,7 @@ public class Panel {
         
         model.addAttribute("products", products);
                      
-        return "panel";
+        return "Panel/panel";
     }  
     @RequestMapping("/list-users")
     public String panelUsers(Model model){
@@ -53,7 +53,7 @@ public class Panel {
         List<User> users = userService.getUsers();    
         model.addAttribute("users", users);
         
-        return "panel-users";
+        return "Panel/panel-users";
     }  
     
     @PostMapping("/saveCustomer")
@@ -61,7 +61,7 @@ public class Panel {
         
         productService.saveProduct(product);
         
-        return "redirect:/panel/list";
+        return "redirect:/Panel/panel/list";
     }  
             
     @PostMapping("/saveUser")       
@@ -69,7 +69,7 @@ public class Panel {
         
         userService.saveUser(user);
         
-        return "redirect:/panel/list-users";
+        return "redirect:/Panel/panel/list-users";
     }
     
     
@@ -81,7 +81,7 @@ public class Panel {
                 
         theModel.addAttribute("products", products);
        
-        return "list-results";
+        return "Panel/list-results";
     }
             
     @RequestMapping(value="search-users", method = RequestMethod.POST)
@@ -92,7 +92,7 @@ public class Panel {
               
         theModel.addAttribute("users", users);
         
-        return "list-results-uers";
+        return "Panel/list-results-uers";
     }
     
     @GetMapping("/updateProduct")
@@ -103,7 +103,7 @@ public class Panel {
         
         model.addAttribute("Products", prod);
                 
-        return "productform";
+        return "Panel/productform";
     } 
     
     @GetMapping("/updateUser")
@@ -114,7 +114,7 @@ public class Panel {
         
         model.addAttribute("User", User);
                 
-        return "userForm";
+        return "Panel/userForm";
     }  
     
     @GetMapping("/deleteUser")
@@ -123,7 +123,7 @@ public class Panel {
         authoritiesService.deleteAuthority(username);
         userService.deleteUser(username);
         
-        return "redirect:/panel/list-users";
+        return "redirect:/Panel/panel/list-users";
     } 
     
     @GetMapping("/deleteProduct")
@@ -131,6 +131,6 @@ public class Panel {
         
         productService.deleteProd(id);
         
-        return "redirect:/panel/list";
+        return "redirect:/Panel/panel/list";
     } 
 }

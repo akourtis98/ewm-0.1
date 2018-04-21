@@ -47,7 +47,7 @@ public class SignUp {
         
         model.addAttribute("User", new User());
         
-        return "signup";
+        return "Register/signup";
     }
     
     @RequestMapping("/processSignup")
@@ -55,12 +55,12 @@ public class SignUp {
     @Valid @ModelAttribute("User") User user,
     BindingResult res){
         if (res.hasErrors()){
-            return "signup";
+            return "Register/signup";
         }
         else{
             userService.saveUser(new User(user.getUsername() ,"{noop}"+user.getPassword(), 1));
             authoritiesService.AuthoServ(new Authorities(user.getUsername() , "ROLE_USER"));
-            return "successignup";
+            return "Register/successignup";
         }
     }
 }

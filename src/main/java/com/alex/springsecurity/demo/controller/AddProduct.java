@@ -42,7 +42,7 @@ public class AddProduct {
         
         model.addAttribute("Products", new Products());
         
-        return "addProductPage";
+        return "Panel/addProductPage";
     }
     
     @RequestMapping("/processProduct")
@@ -50,11 +50,11 @@ public class AddProduct {
     @Valid @ModelAttribute("Products") Products Products,
     BindingResult res){
         if (res.hasErrors()){
-            return "addProductPage";
+            return "Panel/addProductPage";
         }
         else{
             productService.saveProduct(Products);
-            return "successproduct";
+            return "Panel/successproduct";
         }
     }
 }

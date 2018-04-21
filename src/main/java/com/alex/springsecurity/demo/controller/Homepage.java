@@ -9,13 +9,13 @@ public class Homepage {
         @GetMapping("/")
 	public String showHome() {
 		
-		return "home";
+		return "Homepage/homepage";
 	}
         
         @GetMapping("/homepage")
 	public String showHome1() {
 		
-		return "home";
+		return "Homepage/homepage";
 	}
    
 }

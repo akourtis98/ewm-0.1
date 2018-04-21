@@ -17,6 +17,6 @@ public class AccesDenied {
     
     @GetMapping("/denied")
     public String denied(){
-        return "accessdenied";
+        return "HTTP/accessdenied";
     }
 }
