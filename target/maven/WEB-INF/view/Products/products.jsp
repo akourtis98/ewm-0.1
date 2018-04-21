@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@page import="java.util.Iterator"%>
-<%@page import="com.alex.springsecurity.demo.controller.Portfolio"%>
+<%@page import="com.alex.springsecurity.demo.controller.ProductsPage"%>
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,13 +17,13 @@
 </head>
 <body>
     <security:authorize access="hasRole('ANONYMOUS')">
-            <jsp:include page="headerAnonymous.jsp"/>
+            <jsp:include page="../Header/headerAnonymous.jsp"/>
             </security:authorize>  
             <security:authorize access="hasAnyRole('USER')">
-                <jsp:include page="headerUser.jsp"/>
+                <jsp:include page="../Header/headerUser.jsp"/>
             </security:authorize>
             <security:authorize access="hasRole('ADMIN')">
-                <jsp:include page="headerAdmin.jsp"/>
+                <jsp:include page="../Header/headerAdmin.jsp"/>
             </security:authorize> 
     <div id="selectors">
         <select name="Category">

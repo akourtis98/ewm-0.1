@@ -13,13 +13,13 @@
 <body>
     <h1> Homepage</h1>
         <security:authorize access="hasRole('ANONYMOUS')">
-            <jsp:include page="headerAnonymous.jsp"/>
+            <jsp:include page="../Header/headerAnonymous.jsp"/>
             </security:authorize>  
             <security:authorize access="hasAnyRole('USER')">
-                <jsp:include page="headerUser.jsp"/>
+                <jsp:include page="../Header/headerUser.jsp"/>
             </security:authorize>
             <security:authorize access="hasRole('ADMIN')">
-                <jsp:include page="headerAdmin.jsp"/>
+                <jsp:include page="../Header/headerAdmin.jsp"/>
             </security:authorize> 
     <div id="mainBody">
         body
