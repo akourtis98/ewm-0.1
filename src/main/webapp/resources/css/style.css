@@ -34,7 +34,7 @@
         border: 1px solid black;
         margin: auto;
     }
-        #selectors{
+    #selectors{
         height:70px;
         width: 1300px;
         border: 1px solid red;
@@ -62,4 +62,35 @@
         margin: auto;
         text-align: center;
         height: 50px;
+    }
+    
+    #body{
+        width: 1000px;
+        margin: auto;
+        min-height: 250px;
+        border: 2px solid blue;
+    }
+    #sideBar{
+        float: left;
+        background-color: indianred;
+        width: 20%;
+        text-align: center;
+        min-height: 250px;
+    }
+    #sideBar a{
+        margin: 10px;
+    }
+    #main{
+        float: right;
+        width: 80%;
+        min-height: 250px;
+        background-color: gray;
+    }
+    #item{
+        width: 200px;
+        height: 150px;
+        background-color: red;
+        margin: 15px;
+        float: left;
+        display: block;
     }

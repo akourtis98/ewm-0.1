@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -54,6 +55,9 @@ public class Products implements Serializable {
     
     @Column(name="description")
     private String description;
+    
+    @Transient
+    private String order;
     
     public String getCategory() {
         return category;

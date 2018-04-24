@@ -28,7 +28,10 @@ public class ShoppingCart implements Serializable{
     
     @Column(name="user")
     private String user;
-     
+    
+    @Column(name="productName")
+    private String productName;
+    
     @Column(name="price")
     private int price;
     
@@ -36,15 +39,24 @@ public class ShoppingCart implements Serializable{
         return price;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }
     
-    public ShoppingCart(){}
+    public ShoppingCart(){};
     
-    public ShoppingCart(int product, String user) {
+    public ShoppingCart(int product, String user, String prodName) {
         this.product = product;
         this.user = user;
+        this.productName = prodName;
     }
     
     public int getId() {

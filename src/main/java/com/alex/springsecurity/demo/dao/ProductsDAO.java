@@ -31,7 +31,5 @@ public interface ProductsDAO{
 
     public void deleteProdFromCart(int id, String username);   
 
-    public List<Products> getQuantityOfProd(int id, String username);
-
-    public void deleteProdFromCart2(int id, String username);
+    public List<Products> getProductsFiltered(String category, String order);
 }

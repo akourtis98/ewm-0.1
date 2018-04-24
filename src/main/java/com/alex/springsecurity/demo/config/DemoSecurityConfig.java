@@ -26,7 +26,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                .antMatchers( "/homepage", "/", "/user/signup", "/user/processSignup", "/resources/css/style.css", "/user/successignup", "/user", "/signin", "/denied").permitAll()
+                .antMatchers( "/homepage", "/", "/user/signup", "/user/processSignup", "/resources/css/style.css", "/user/successignup", "products/AddToCartLink", "/user", "/user/signin", "/denied").permitAll()
                 .antMatchers("/panel").hasRole("ADMIN")
                 .antMatchers("/about").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/contact").hasAnyRole("USER", "ADMIN")

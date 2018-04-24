@@ -21,6 +21,6 @@ public class SignIn {
     @GetMapping("/signin")
     public String signin(){
         
-        return "/";
+        return "Register/signin";
     }
 }

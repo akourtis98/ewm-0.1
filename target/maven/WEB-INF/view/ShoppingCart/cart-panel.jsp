@@ -31,7 +31,7 @@
                         <th>username</th>
                         <th>productid</th>
                         <th>price</th>
-                        <th>Action</th>
+                        <th>title</th>
                     </tr>
                     <c:forEach var="products" items="${products}">
                          <c:url var="deleteLink" value="deleteProductFromCart">
@@ -41,6 +41,7 @@
                             <td>${products.user}</td>
                             <td>${products.product}</td>
                             <td><a href="${deleteLink}">Delete</a></td>
+                            <td>${products.productName}</td>
                         </tr>
                     </c:forEach>
     </table>

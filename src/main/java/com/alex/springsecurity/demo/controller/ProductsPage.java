@@ -26,7 +26,7 @@ public class ProductsPage {
     private ProductService productService;
 
     @RequestMapping("/products")
-    public String portfolio(Model model){
+    public String productsDefault(Model model){
       
         List<Products> products = productService.getProducts();
         
@@ -35,14 +35,24 @@ public class ProductsPage {
         return "Products/products";
     }
     
+    @RequestMapping("/products/filter")
+    public String products(@RequestParam("category") String category, @RequestParam("order") String order, Model model){
+        
+        List<Products> products = productService.getProductsFiltered(category, order);
+        
+        model.addAttribute("products", products);
+        
+        return "Products/products";
+    }
+    
     @RequestMapping("/AddToCartLink")
-    public String addToCart(@RequestParam("id") int id)
+    public String addToCart(@RequestParam("id") int id, @RequestParam("prodName") String prodName)
     {      
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         
-        productService.addToCart(new ShoppingCart(id, username));
+        productService.addToCart(new ShoppingCart(id, username, prodName));
         
-        return "redirect:/Products/products";
+        return "redirect:/products";
     }
 }

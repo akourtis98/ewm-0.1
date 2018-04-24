@@ -95,7 +95,7 @@ public class ProductsDAOImpl  implements ProductsDAO{
     @Transactional
     public List<ShoppingCart> getProductsFromCart(String username) {
         
-         List<ShoppingCart> products = sessionFactory.openSession()
+        List<ShoppingCart> products = sessionFactory.openSession()
                 .createQuery("from ShoppingCart where user like :username", ShoppingCart.class)
                 .setParameter("username", username)
                 .getResultList();
@@ -106,29 +106,21 @@ public class ProductsDAOImpl  implements ProductsDAO{
     @Override
     @Transactional
     public void deleteProdFromCart(int id, String username) {
+        
         sessionFactory.getCurrentSession()
                 .createQuery("delete from ShoppingCart where id=:id and user like :username")
                 .setParameter("id", id)
                 .setParameter("username", username)
                 .executeUpdate();
     }
+
     @Override
     @Transactional
-    public void deleteProdFromCart2(int id, String username) {
-        sessionFactory.getCurrentSession()
-                .createQuery("delete from ShoppingCart where product=:id and user like :username")
-                .setParameter("id", id)
-                .setParameter("username", username)
-                .executeUpdate();
-    }
-    @Override
-    @Transactional
-    public List<Products> getQuantityOfProd(int id, String username) {
-        return sessionFactory.getCurrentSession()
-                .createQuery("from ShoppingCart where product=:id and user like :username")
-                .setCacheable(true)
-                .setParameter("id", id)
-                .setParameter("username", username)
+    public List<Products> getProductsFiltered(String category, String orderby) {
+        
+        return sessionFactory.openSession() // "FROM Foo f ORDER BY f.name ASC";
+                .createQuery("from Products where category like :category ORDER BY price " + orderby)
+                .setParameter("category", category)
                 .list();
     }
 }
