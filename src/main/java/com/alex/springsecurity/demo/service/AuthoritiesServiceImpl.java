@@ -31,6 +31,7 @@ public class AuthoritiesServiceImpl implements AuthoritiesService{
     @Override
     @Transactional
     public void deleteAuthority(String username) {
+        
         authoritiesDAO.deleteAuthority(username);
     }
 }

@@ -35,12 +35,10 @@ public class UsersDAOImpl implements UsersDAO {
     @Override
     @Transactional
     public List<User> getUsers() {
-               
-        List<User> users = sessionFactory.getCurrentSession()
+                    
+       return sessionFactory.getCurrentSession()
                 .createQuery("from User", User.class)
-                .getResultList();
-               
-       return users; 
+                .getResultList(); 
     }
 
     @Override
@@ -57,9 +55,7 @@ public class UsersDAOImpl implements UsersDAO {
     @Transactional
     public User getUserData(String username) {
         
-       User user = sessionFactory.getCurrentSession().get(User.class, username);
-
-       return user; 
+       return sessionFactory.getCurrentSession().get(User.class, username);
     }
 
     @Override

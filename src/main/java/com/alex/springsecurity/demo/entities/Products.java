@@ -46,6 +46,15 @@ public class Products implements Serializable {
     @Size(min=1, message="is required")
     private String category;
 
+    @Column(name="enabled")
+    private int enabled;
+    
+    @Column(name="price")
+    private int price;
+    
+    @Column(name="description")
+    private String description;
+    
     public String getCategory() {
         return category;
     }
@@ -77,17 +86,7 @@ public class Products implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    @Column(name="enabled")
-    private int enabled;
-    
-    @Column(name="price")
-    private int price;
-    
-    @Column(name="description")
-    private String description;
-    
-     
+      
     public int getId() {
         return id;
     }

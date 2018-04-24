@@ -25,7 +25,7 @@ public class ProductsPage {
     @Autowired 
     private ProductService productService;
 
-    @RequestMapping("/portfolio")
+    @RequestMapping("/products")
     public String portfolio(Model model){
       
         List<Products> products = productService.getProducts();

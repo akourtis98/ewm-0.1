@@ -33,7 +33,9 @@ public class AuthoritiesDAOImpl implements AuthoritiesDAO {
     @Transactional
     public void deleteAuthority(String username) {  
         
-        sessionFactory.getCurrentSession().createQuery("delete from Authorities where username=:username")
+        sessionFactory
+                .getCurrentSession()
+                .createQuery("delete from Authorities where username=:username")
                 .setParameter("username", username)
                 .executeUpdate();
         

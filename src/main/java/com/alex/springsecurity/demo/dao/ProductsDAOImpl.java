@@ -29,22 +29,18 @@ public class ProductsDAOImpl  implements ProductsDAO{
     @Override
     public List<Products> getProducts() {
               
-        List<Products> products = sessionFactory.openSession()
+       return sessionFactory.openSession()
                 .createQuery("from Products", Products.class)
-                .getResultList();
-               
-       return products; 
+                .getResultList(); 
     }
 
     @Override
     @Transactional
     public Products getProduct(int id) {
         
-        Products prod =  sessionFactory
+        return sessionFactory
                 .getCurrentSession()
                 .get(Products.class, id);
-
-        return prod;
     }
     
     @Override

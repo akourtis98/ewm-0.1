@@ -4,7 +4,7 @@
             <div id="header_p_div2">
                  <div>
                     <i style="color: gray"> You are currently not logged in. </i>
-                    <a href="${pageContext.request.contextPath}/signin">Sign in</a>
+                    <a href="${pageContext.request.contextPath}/user/signin">Sign in</a>
                     <a href="${pageContext.request.contextPath}/user/signup">Sign up</a>
                 </div>
                
