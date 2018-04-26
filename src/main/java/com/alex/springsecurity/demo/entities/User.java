@@ -68,7 +68,7 @@ public class User implements Serializable {
         this.fname = fname;
         this.lname = lname;
         this.enabled = enabled;
-        this.password = password;
+        this.password = "{noop}"+password;
     }
     
     public void setUsername(String username) {

@@ -26,8 +26,12 @@
                     <option value="Hats">Hats</option>
                 </form:select>
                 <form:errors path="category" cssClass="error"/>
-               
                 <br><br>    
+                
+                Please type title of product (*)<form:input path="price" type="text"/>
+                <form:errors path="price" cssClass="error"/>
+                
+                
                 <input type="submit" value="Complete">
                 
               </form:form> 

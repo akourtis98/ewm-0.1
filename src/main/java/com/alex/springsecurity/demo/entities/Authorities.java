@@ -31,7 +31,7 @@ public class Authorities implements Serializable {
 
     public Authorities (String username, String authority){
         this.username = username;
-        this.authority = authority;
+        this.authority = "ROLE_USER";
     }
 
     public String getUsername() {
