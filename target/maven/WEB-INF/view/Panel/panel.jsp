@@ -7,12 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <style>
-            table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    }
-        </style>
+        <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     </head>
     <body>
         <form:form action="search" method="POST">

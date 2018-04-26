@@ -81,7 +81,7 @@ public class Panel {
                 
         theModel.addAttribute("products", products);
        
-        return "Panel/list-results";
+        return "Products/products";
     }
             
     @RequestMapping(value="search-users", method = RequestMethod.POST)

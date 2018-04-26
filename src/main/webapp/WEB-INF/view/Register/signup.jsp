@@ -14,7 +14,7 @@
             <br><br>
             <form:form action="${pageContext.request.contextPath}/user/processSignup" modelAttribute="User">
          
-                Please create a username: (*)<form:input path="username" type="text"/>
+                Please create a username: (*)<form:input path="username" type="email"/>
                 <form:errors path="username" cssClass="error"/>
                 <br><br>
                 
