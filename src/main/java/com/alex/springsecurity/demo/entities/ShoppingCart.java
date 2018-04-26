@@ -64,10 +64,12 @@ public class ShoppingCart implements Serializable{
     
     public ShoppingCart(){};
     
-    public ShoppingCart(int product, String user, String prodName) {
+    public ShoppingCart(int product, String user, String prodName, String category, int price) {
         this.product = product;
         this.user = user;
         this.productName = prodName;
+        this.categoryOfProduct = category;
+        this.price = price;
     }
     
     public int getId() {

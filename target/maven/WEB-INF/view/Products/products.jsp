@@ -56,7 +56,8 @@
                 <c:forEach var="Products" items="${products}">
                     <c:url var="AddToCartLink" value="AddToCartLink">
                             <c:param name="id" value="${Products.id}"/>
-                            <c:param name="prodName" value="${Products.title}"/>
+                            <c:param name="title" value="${Products.title}"/>
+                            <c:param name="category" value="${Products.category}"/>
                             <c:param name="price" value="${Products.price}"/>
                     </c:url>
                     <div id="item">

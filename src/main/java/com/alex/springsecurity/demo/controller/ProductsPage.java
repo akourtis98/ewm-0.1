@@ -46,12 +46,12 @@ public class ProductsPage {
     }
     
     @RequestMapping("/AddToCartLink")
-    public String addToCart(@RequestParam("id") int id, @RequestParam("prodName") String prodName)
+    public String addToCart(@RequestParam("id") int id, @RequestParam("title") String prodName, @RequestParam("category") String category, @RequestParam("price") int price)
     {      
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         
-        productService.addToCart(new ShoppingCart(id, username, prodName));
+        productService.addToCart(new ShoppingCart(id, username, prodName, category, price));
         
         return "redirect:/products";
     }
