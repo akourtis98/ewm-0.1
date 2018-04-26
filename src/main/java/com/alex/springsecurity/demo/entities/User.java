@@ -27,6 +27,16 @@ public class User implements Serializable {
     @Size(min=1, message="is required")
     private String username;
     
+    @Column(name="fname")
+    @NotNull(message="is required")
+    @Size(min=1, message="is required")
+    private String fname;
+    
+    @Column(name="lname")
+    @NotNull(message="is required")
+    @Size(min=1, message="is required")
+    private String lname;
+    
     @Column(name="enabled")
     private int enabled;
     
@@ -37,15 +47,28 @@ public class User implements Serializable {
 
     public User(){}
 
-    public User(String username, String password, int enabled){
-        this.username = username;
-        this.password = password;
-        this.enabled = enabled;
+    public String getFname() {
+        return fname;
     }
-     
-    public User(String password, int enabled){
-        this.password = password;
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
+    }
+
+    public User(String username, String fname, String lname, String password, int enabled) {
+        this.username = username;
+        this.fname = fname;
+        this.lname = lname;
         this.enabled = enabled;
+        this.password = password;
     }
     
     public void setUsername(String username) {

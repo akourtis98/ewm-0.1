@@ -7,12 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <style>
-            table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    }
-        </style>
+        <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     </head>
     <body>
         <form:form action="search" method="POST">
@@ -28,20 +23,20 @@
     <p>here are all the products:</p><hr>
     <table style="width:45%;">
                     <tr>
-                        <th>username</th>
-                        <th>productid</th>
-                        <th>price</th>
-                        <th>title</th>
-                    </tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr> <!-- needs work -->
                     <c:forEach var="products" items="${products}">
                          <c:url var="deleteLink" value="deleteProductFromCart">
                             <c:param name="id" value="${products.id}"/>
                         </c:url>
                         <tr>
-                            <td>${products.user}</td>
-                            <td>${products.product}</td>
-                            <td><a href="${deleteLink}">Delete</a></td>
                             <td>${products.productName}</td>
+                            <td>${products.categoryOfProduct}</td>
+                            <td>${products.price}</td>
+                            <td><a href="${deleteLink}">Delete</a></td>
                         </tr>
                     </c:forEach>
     </table>

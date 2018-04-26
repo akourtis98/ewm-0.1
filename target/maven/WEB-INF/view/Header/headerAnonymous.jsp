@@ -10,12 +10,6 @@
                
             </div>
                 <div id="header_p_div2">
-                 <form:form action="panel/search" method="POST">
-                    <input type="search" id="mySearch" name="searchTerm" 
-                    placeholder="Search the site...">  <button>Search</button>
-                </form:form>
-                </div>
-                <div id="header_p_div2">
                 <form:form action="panel/search" method="POST">
                     <input type="search" id="mySearch" name="searchTerm" 
                     placeholder="Search the site...">  <button>Search</button>

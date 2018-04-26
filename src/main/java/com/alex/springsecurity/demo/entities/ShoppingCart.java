@@ -23,20 +23,31 @@ public class ShoppingCart implements Serializable{
     @Id
     private int id;
     
-    @Column(name="product")
+    @Column(name="productId")
     private int product;
     
-    @Column(name="user")
+    @Column(name="username")
     private String user;
     
     @Column(name="productName")
     private String productName;
     
-    @Column(name="price")
+    @Column(name="priceOfProduct")
     private int price;
+    
+    @Column(name="categoryOfProduct")
+    private String categoryOfProduct;
     
     public int getPrice() {
         return price;
+    }
+
+    public String getCategoryOfProduct() {
+        return categoryOfProduct;
+    }
+
+    public void setCategoryOfProduct(String categoryOfProduct) {
+        this.categoryOfProduct = categoryOfProduct;
     }
 
     public String getProductName() {

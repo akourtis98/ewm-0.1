@@ -13,7 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -54,10 +53,7 @@ public class Products implements Serializable {
     private int price;
     
     @Column(name="description")
-    private String description;
-    
-    @Transient
-    private String order;
+    private String description;   
     
     public String getCategory() {
         return category;
@@ -109,6 +105,6 @@ public class Products implements Serializable {
 
     @Override
     public String toString() {
-        return "Products{"+ " id=" + id + ", title=" + title + ", category=" + category + ", enabled=" + enabled + ", price=" + price + ", description=" + description + '}';
+        return "Products{" + "id=" + id + ", title=" + title + ", category=" + category + ", enabled=" + enabled + ", price=" + price + ", description=" + description + '}';
     }
 }
