@@ -6,20 +6,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
         <title>JSP Page</title>
         <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     </head>
     <body>
-        <form:form action="search" method="POST">
-            <input type="search" id="mySearch" name="searchTerm" 
-            placeholder="Search the site...">  <button>Search</button>
-            </form:form>
-        <h1>Hello managers!</h1>
-         <h4> User: <security:authentication property="principal.username"/> 
-        <br>
-        Role: <security:authentication property="principal.authorities" />
-    </h4>
-    <br>
+       <security:authorize access="hasRole('ANONYMOUS')">
+            <jsp:include page="../Header/headerAnonymous.jsp"/>
+            </security:authorize>  
+            <security:authorize access="hasAnyRole('USER')">
+                <jsp:include page="../Header/headerUser.jsp"/>
+            </security:authorize>
+            <security:authorize access="hasRole('ADMIN')">
+                <jsp:include page="../Header/headerAdmin.jsp"/>
+            </security:authorize> 
     <a href="list-users" >
     <h3> for users management click here</h3>
     </a>

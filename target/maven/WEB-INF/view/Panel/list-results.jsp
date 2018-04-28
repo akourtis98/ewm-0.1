@@ -6,20 +6,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
         <title>JSP Page</title>
-        <style>
-            table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    }
-        </style>
     </head>
     <body>
-        <form:form action="search" method="POST">
-            <input type="search" id="mySearch" name="searchTerm" 
-            placeholder="Search the site...">  <button>Search</button>
-            </form:form>
-        <h1>Hello managers!</h1>
+      <security:authorize access="hasRole('ANONYMOUS')">
+            <jsp:include page="../Header/headerAnonymous.jsp"/>
+            </security:authorize>  
+            <security:authorize access="hasAnyRole('USER')">
+                <jsp:include page="../Header/headerUser.jsp"/>
+            </security:authorize>
+            <security:authorize access="hasRole('ADMIN')">
+                <jsp:include page="../Header/headerAdmin.jsp"/>
+            </security:authorize> 
          <h4> User: <security:authentication property="principal.username"/> 
         <br>
         Role: <security:authentication property="principal.authorities" />

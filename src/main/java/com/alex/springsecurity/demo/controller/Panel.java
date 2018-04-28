@@ -56,12 +56,12 @@ public class Panel {
         return "Panel/panel-users";
     }  
     
-    @PostMapping("/saveCustomer")
+    @PostMapping("/saveProduct")
     public String save(@ModelAttribute("Products")Products product){
         
         productService.saveProduct(product);
         
-        return "redirect:/Panel/panel/list";
+        return "redirect:/panel/list";
     }  
             
     @PostMapping("/saveUser")       
@@ -69,7 +69,7 @@ public class Panel {
         
         userService.saveUser(user);
         
-        return "redirect:/Panel/panel/list-users";
+        return "redirect:/panel/list-users";
     }
     
     
@@ -123,7 +123,7 @@ public class Panel {
         authoritiesService.deleteAuthority(username);
         userService.deleteUser(username);
         
-        return "redirect:/Panel/panel/list-users";
+        return "redirect:/panel/list-users";
     } 
     
     @GetMapping("/deleteProduct")
@@ -131,6 +131,6 @@ public class Panel {
         
         productService.deleteProd(id);
         
-        return "redirect:/Panel/panel/list";
+        return "redirect:/panel/list";
     } 
 }

@@ -58,7 +58,7 @@ public class SignUp {
             return "Register/signup";
         }
         else{
-            userService.saveUser(user);
+            userService.saveUser(new User(user.getUsername(), user.getFname(), user.getLname(), user.getPassword(), user.getEnabled()));
             authoritiesService.AuthoServ(new Authorities(user.getUsername() , "ROLE_USER"));
             return "Register/successignup";
         }

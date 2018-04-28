@@ -62,13 +62,13 @@ public class User implements Serializable {
     public void setLname(String lname) {
         this.lname = lname;
     }
-
+    
     public User(String username, String fname, String lname, String password, int enabled) {
         this.username = username;
         this.fname = fname;
         this.lname = lname;
         this.enabled = enabled;
-        this.password = "{noop}"+password;
+        this.password = password;
     }
     
     public void setUsername(String username) {
