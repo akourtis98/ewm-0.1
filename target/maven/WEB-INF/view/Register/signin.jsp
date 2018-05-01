@@ -30,10 +30,10 @@
                   
             <form:form action="${pageContext.request.contextPath}/authenticateTheUser"
                        method="POST">
-                Please enter your email: <input placeholder="username" name="username" type="email"/>
+                Please enter your email: <input placeholder="Email" name="username" type="email"/>
                 <br><br>
                 
-                Please enter your password: <input placeholder="password" name="password" type="password"/>
+                Please enter your password: <input placeholder="Password" name="password" type="password"/>
                 
                 <br><br>
                 

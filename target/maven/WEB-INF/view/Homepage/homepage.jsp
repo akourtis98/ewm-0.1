@@ -11,7 +11,6 @@
     <title>Homepage</title>
 </head>
 <body>
-    <h1> Homepage</h1>
         <security:authorize access="hasRole('ANONYMOUS')">
             <jsp:include page="../Header/headerAnonymous.jsp"/>
             </security:authorize>  

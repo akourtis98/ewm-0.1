@@ -5,7 +5,6 @@
  */
 package com.alex.springsecurity.demo.controller;
 
-import com.alex.springsecurity.demo.entities.Products;
 import com.alex.springsecurity.demo.entities.ShoppingCart;
 import com.alex.springsecurity.demo.service.ProductService;
 import java.util.List;

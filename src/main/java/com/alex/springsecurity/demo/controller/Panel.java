@@ -11,10 +11,15 @@ import com.alex.springsecurity.demo.service.AuthoritiesService;
 import com.alex.springsecurity.demo.service.ProductService;
 import com.alex.springsecurity.demo.service.UserService;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +43,22 @@ public class Panel {
     @Autowired
     private UserService userService;
     
+    @InitBinder
+    public void initBinder(WebDataBinder databinder){
+        
+        StringTrimmerEditor strTrim = new StringTrimmerEditor(true);
+        
+        databinder.registerCustomEditor(String.class, strTrim);
+    }
+    
+    @RequestMapping("/add-product")
+    public String signup(Model model){
+        
+        model.addAttribute("Products", new Products());
+        
+        return "Panel/addProductPage";
+    }
+    
     @RequestMapping("/list")
     public String panel(Model model){
       
@@ -55,6 +76,20 @@ public class Panel {
         
         return "Panel/panel-users";
     }  
+
+    
+    @RequestMapping("/processProduct")
+    public String processSignup(
+    @Valid @ModelAttribute("Products") Products Products,
+    BindingResult res){
+        if (res.hasErrors()){
+            return "Panel/addProductPage";
+        }
+        else{
+            productService.saveProduct(Products);
+            return "Panel/successproduct";
+        }
+    }
     
     @PostMapping("/saveProduct")
     public String save(@ModelAttribute("Products")Products product){

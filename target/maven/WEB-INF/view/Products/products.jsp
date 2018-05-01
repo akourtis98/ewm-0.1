@@ -54,7 +54,7 @@
             <div id="main">
                 <p> here are my products </p>
                 <c:forEach var="Products" items="${products}">
-                    <c:url var="AddToCartLink" value="AddToCartLink">
+                    <c:url var="AddToCartLink" value="panel/AddToCartLink">
                             <c:param name="id" value="${Products.id}"/>
                             <c:param name="title" value="${Products.title}"/>
                             <c:param name="category" value="${Products.category}"/>
@@ -70,7 +70,6 @@
             </div>
         </div>
     </div>
-
     <div id="footer">
         <div id="footer_a_div">
             <a href="">github</a>

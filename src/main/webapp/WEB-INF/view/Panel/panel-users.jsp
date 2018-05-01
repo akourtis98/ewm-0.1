@@ -10,7 +10,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello managers!</h1>
             <security:authorize access="hasRole('ANONYMOUS')">
             <jsp:include page="../Header/headerAnonymous.jsp"/>
             </security:authorize>  
@@ -19,29 +18,38 @@
             </security:authorize>
             <security:authorize access="hasRole('ADMIN')">
                 <jsp:include page="../Header/headerAdmin.jsp"/>
-            </security:authorize> 
-    <p>here are all the users</p><hr>
-    <table style="width:45%;">
-                    <tr>
-                        <th>username</th>
-                        <th>password</th>
-                        <th>action</th>
-                    </tr>
-                    <c:forEach var="users" items="${users}">
-                          <c:url var="updateLink" value="updateUser">
-                            <c:param name="username" value="${users.username}"/>
-                        </c:url>
-                             <c:url var="deleteLink" value="deleteUser">
-                                <c:param name="username" value="${users.username}"/>
-                            </c:url>
-                        <tr>
-                            <td>${users.username}</td>
-                            <td>${users.password}</td>         
-                            <td><a href="${updateLink}">Update</a></td>
-                            <td><a href="${deleteLink}" onclick=" if (!(confirm('Are you sure you want to delete this product'))) return false">Delete</a></td>
-                        </tr>
-                    </c:forEach>                      
-    </table>
-    <a href="${pageContext.request.contextPath}/homepage">Go back to homepage</a>
+            </security:authorize>
+        <div id="mainBody">
+            <p>here are all the users</p><hr>
+            <table style="width:45%;">
+                            <tr>
+                                <th>username</th>
+                                <th>password</th>
+                                <th>action</th>
+                            </tr>
+                            <c:forEach var="users" items="${users}">
+                                  <c:url var="updateLink" value="updateUser">
+                                    <c:param name="username" value="${users.username}"/>
+                                </c:url>
+                                     <c:url var="deleteLink" value="deleteUser">
+                                        <c:param name="username" value="${users.username}"/>
+                                    </c:url>
+                                <tr>
+                                    <td>${users.username}</td>
+                                    <td>${users.password}</td>         
+                                    <td><a href="${updateLink}">Update</a></td>
+                                    <td><a href="${deleteLink}" onclick=" if (!(confirm('Are you sure you want to delete this product'))) return false">Delete</a></td>
+                                </tr>
+                            </c:forEach>                      
+            </table>
+            <a href="${pageContext.request.contextPath}/homepage">Go back to homepage</a>
+        </div>
+        <div id="footer">
+            <div id="footer_a_div">
+                <a href="">github</a>
+                <a href="">linkedin</a>
+                <a href="">hackerrank</a>
+            </div>
+        </div>
     </body>
 </html>

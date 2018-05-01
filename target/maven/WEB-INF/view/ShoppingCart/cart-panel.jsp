@@ -10,36 +10,43 @@
         <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
     </head>
     <body>
-        <form:form action="search" method="POST">
-            <input type="search" id="mySearch" name="searchTerm" 
-            placeholder="Search the site...">  <button>Search</button>
-            </form:form>
-        <h1>Hello managers!</h1>
-         <h4> User: <security:authentication property="principal.username"/> 
-        <br>
-        Role: <security:authentication property="principal.authorities" />
-    </h4>
-    <br>
-    <p>here are all the products:</p><hr>
-    <table style="width:45%;">
-                    <tr>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr> <!-- needs work -->
-                    <c:forEach var="products" items="${products}">
-                         <c:url var="deleteLink" value="deleteProductFromCart">
-                            <c:param name="id" value="${products.id}"/>
-                        </c:url>
-                        <tr>
-                            <td>${products.productName}</td>
-                            <td>${products.categoryOfProduct}</td>
-                            <td>${products.price}</td>
-                            <td><a href="${deleteLink}">Delete</a></td>
-                        </tr>
-                    </c:forEach>
-    </table>
-    <a href="${pageContext.request.contextPath}/homepage">Go back to homepage</a>
+        <security:authorize access="hasRole('ANONYMOUS')">
+        <jsp:include page="../Header/headerAnonymous.jsp"/>
+        </security:authorize>  
+        <security:authorize access="hasAnyRole('USER')">
+            <jsp:include page="../Header/headerUser.jsp"/>
+        </security:authorize>
+        <security:authorize access="hasRole('ADMIN')">
+            <jsp:include page="../Header/headerAdmin.jsp"/>
+        </security:authorize>
+        <div id="mainBody">
+            <table style="width:45%;">
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr> <!-- needs work -->
+                            <c:forEach var="products" items="${products}">
+                                 <c:url var="deleteLink" value="deleteProductFromCart">
+                                    <c:param name="id" value="${products.id}"/>
+                                </c:url>
+                                <tr>
+                                    <td>${products.productName}</td>
+                                    <td>${products.categoryOfProduct}</td>
+                                    <td>${products.price}</td>
+                                    <td><a href="${deleteLink}">Delete</a></td>
+                                </tr>
+                            </c:forEach>
+            </table>
+            <a href="${pageContext.request.contextPath}/homepage">Go back to homepage</a>
+        </div>   
+        <div id="footer">
+            <div id="footer_a_div">
+                <a href="">github</a>
+                <a href="">linkedin</a>
+                <a href="">hackerrank</a>
+            </div>
+        </div>
     </body>
 </html>

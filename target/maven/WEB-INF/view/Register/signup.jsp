@@ -24,19 +24,19 @@
             <br><br>
             <form:form action="${pageContext.request.contextPath}/user/processSignup" modelAttribute="User">
          
-                Please enter your email (*)<form:input path="username" type="email"/>
+                Please enter your email (*)<form:input placeholder="Email" path="username" type="email"/>
                 <form:errors path="username" cssClass="error"/>
                 <br><br>
                 
-                Please enter your first name: (*)<form:input path="fname" type="text"/>
+                Please enter your first name: (*)<form:input placeholder="First Name" path="fname" type="text"/>
                 <form:errors path="fname" cssClass="error"/>
                 <br><br>
                 
-                Please enter your last name: (*)<form:input path="lname" type="text"/>
+                Please enter your last name: (*)<form:input placeholder="Last Name" path="lname" type="text"/>
                 <form:errors path="lname" cssClass="error"/>
                 <br><br>
                 
-                Please create a password: (*)<form:input path="password" type="password"/>
+                Please create a password: (*)<form:input placeholder="Password" path="password" type="password"/>
                 <form:errors path="password" cssClass="error"/>     
                 <br><br>    
                 

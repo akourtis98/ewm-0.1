@@ -19,33 +19,42 @@
             </security:authorize>
             <security:authorize access="hasRole('ADMIN')">
                 <jsp:include page="../Header/headerAdmin.jsp"/>
-            </security:authorize> 
-    <a href="list-users" >
-    <h3> for users management click here</h3>
-    </a>
-    <p>here are all the products:</p><hr>
-    <table style="width:45%;">
-                    <tr>
-                        <th>title</th>
-                        <th>category</th>
-                        <th>Action</th>
-                        <th>Action</th>
-                    </tr>
-                    <c:forEach var="tempProducts" items="${products}">
-                        <c:url var="updateLink" value="updateProduct">
-                            <c:param name="id" value="${tempProducts.id}"/>
-                        </c:url>
-                         <c:url var="deleteLink" value="deleteProduct">
-                            <c:param name="id" value="${tempProducts.id}"/>
-                        </c:url>
-                        <tr>
-                            <td>${tempProducts.title}</td>
-                            <td>${tempProducts.category}</td>
-                            <td><a href="${updateLink}">Update</a></td>
-                            <td><a href="${deleteLink}" onclick=" if (!(confirm('Are you sure you want to delete this product'))) return false">Delete</a></td>
-                        </tr>
-                    </c:forEach>
-    </table>
-    <a href="${pageContext.request.contextPath}/homepage">Go back to homepage</a>
+            </security:authorize>
+        <div id="mainBody">
+            <a href="list-users" >
+                <h3> for users management click here</h3>
+                </a>
+                <p>here are all the products:</p><hr>
+                    <table style="width:45%;">
+                                    <tr>
+                                        <th>${tempProducts.title}</th>
+                                        <th>category</th>
+                                        <th>Action</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <c:forEach var="tempProducts" items="${products}">
+                                        <c:url var="updateLink" value="updateProduct">
+                                            <c:param name="id" value="${tempProducts.id}"/>
+                                        </c:url>
+                                         <c:url var="deleteLink" value="deleteProduct">
+                                            <c:param name="id" value="${tempProducts.id}"/>
+                                        </c:url>
+                                        <tr>
+                                            <td>${tempProducts.title}</td>
+                                            <td>${tempProducts.category}</td>
+                                            <td><a href="${updateLink}">Update</a></td>
+                                            <td><a href="${deleteLink}" onclick=" if (!(confirm('Are you sure you want to delete this product'))) return false">Delete</a></td>
+                                        </tr>
+                                    </c:forEach>
+                    </table>
+                <a href="${pageContext.request.contextPath}/homepage">Go back to homepage</a>
+        </div>
+        <div id="footer">
+            <div id="footer_a_div">
+                <a href="">github</a>
+                <a href="">linkedin</a>
+                <a href="">hackerrank</a>
+            </div>
+        </div>
     </body>
 </html>

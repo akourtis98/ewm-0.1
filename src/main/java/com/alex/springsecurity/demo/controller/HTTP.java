@@ -7,13 +7,15 @@ package com.alex.springsecurity.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
  * @author alexkourtis11
  */
 @Controller
-public class AccesDenied {
+@RequestMapping("/http")
+public class HTTP {
     
     @GetMapping("/denied")
     public String denied(){
